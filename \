@@ -7,9 +7,7 @@ var TopicView = Backbone.View.extend({
   //events: { 'click button#zoom': 'zoom', 'click': 'zoom', },
   initialize: function() {
     _.bindAll(this,'render','zoom');
-    //this.bind("reset",this.close);
     //this.model.bind('zoom',this.zoom);
-    this.listenTo(this.model,'destroy',this.close);
   },
   render: function() {
     this.art = this.model.get("art");
@@ -25,63 +23,35 @@ var TopicView = Backbone.View.extend({
     app_router.navigate(this.label); //,{trigger:true});
     return false;
   },
-  close: function(){
-    this.remove();
-    this.unbind();
-    if (this.onClose){ this.onClose(); }
-  },
 });
 
 var TopicListView = Backbone.View.extend({
-  views: [],
+  el: $('body'),
   initialize: function(options){
-    $('body').append(this.el);
-    this.remake_collection();
     _.bindAll(this, 'render');
-  },
-  remake_collection: function() {
     this.collection = this.model.children; 
     //this.collection.bind('add',this.appendItem);
     //this.listenTo(this.collection,'reset',this.render);
-    this.label = this.model.get("label").toUpperCase();
-    this.art = this.model.get("art");
     this.render();
   },
-  hide: function() {
-    this.$el.hide();
-  },
-  show: function() {
-    this.$el.show();
-    document.title = this.label;
+  cleanup: function() {
+    _.each(this.collection,function(handle){ handle.remove(); },this);
   },
   render: function(){
-    document.title = this.label;
-    $(this.el).append("<h1>"+this.label+"</h1>");
-    $(this.el).css("background-image", "url('/images/"+this.art+"')");
     var self = this;
-    self.views = [];
+    var label = this.model.get("label").toUpperCase();
+    var art = this.model.get("art");
+    document.title = label;
+    $(this.el).append("<h1>"+label+"</h1>");
+    $(this.el).css("background-image", "url('/images/"+art+"')");
     _(this.collection.models).each(function(item){ self.appendItem(item); },this);
     $(this.el).append("<br style=clear:both;/>");
     $(this.el).append("<br/>");
     $(this.el).append("<p></p>");
   },
   appendItem: function(item) {
-    item.view = new TopicView({model:item});
-    this.views.push(item.view);
-    $(this.el).append(item.view.render());
-  },
-  freshen_contents: function(model) {
-    // manually remove all views by hand for now xxx improve?
-    // xxx doesn't actually detach the view from the html... why? xxx
-    for(var i = 0; i < this.views.length; i++) {
-       var view = this.views[i];
-       view.close();
-    };
-    this.views = [];
-    this.collection.reset();
-    $(this.el).empty();
-    this.model = model;
-    this.render();
+    var view = new TopicView({model:item});
+    $(this.el).append(view.render());
   },
   close: function(){
     this.remove();
@@ -96,6 +66,7 @@ var TopicListView = Backbone.View.extend({
 
 var topics_by_name = {};
 
+// debatable if this is best...
 function convert_to_backbone(parent) {
   var collection = new TopicList();
   for(var i=0 ; parent.children && i<parent.children.length;i++) {
@@ -109,61 +80,45 @@ function convert_to_backbone(parent) {
   return parent;
 }
 
-topic_main = convert_to_backbone(topic_main);
-
-var current_view;
-var allviews = {};
-
-function go_somewhere(path) {
-  if(current_view) current_view.hide();
-  var topic = topics_by_name[path];
-  if(!topic) {
-    console.log("did not find view - assuming default");
-    topic = topic_main;
-  }
-  console.log("considering topic " + topic.get("label"));
-  console.log(topic);
-  var foundview = allviews[topic.get("label")];
-  console.log(topic.view);
-  console.log(foundview);
-
-  if(!foundview) {
-    topic.view = new TopicListView({model:topic});
-    console.log("produced a new view");
-    console.log(topic.view.$el);
-    topic.view.$el.attr("id",topic.get("label"));
-  } else {
-    foundview.show();
-  }
-  current_view = topic.view;
-  allviews[topic.get("label")] = current_view;
-  console.log("made a view " + topic.get("label"));
-};
+var backbonetopics = convert_to_backbone(topic_main);
 
 /////////////////////////////////////////////////////////////////////////////////
 // backbone routing
 /////////////////////////////////////////////////////////////////////////////////
 
+var active_view = 0;
+
 var AppRouter = Backbone.Router.extend({
   routes: {
-    "a": "makeViewa",
-    "b": "makeViewb",
-    "*actions": "makeView"
+    "*actions": "defaultRoute"
   }
 });
 
 var app_router = new AppRouter;
+app_router.on('route:defaultRoute', function (actions) {
+console.log("trying to show " + actions );
+  var area = topics_by_name[actions];
+  if(!area) area = backbonetopics;
+  if(active_view) {
 
-app_router.on('route:makeViewa', function (actions) {
-  go_somewhere("The Beauty of our World");
-});
+console.log("trying a reset");
+active_view.remove();
+active_view.unbind();
+$('body').empty();
+/*
+active_view.cleanup();
+console.log("cleanup done");
+active_view.collection.reset(area.children);
+console.log("made new area");
+return;
 
-app_router.on('route:makeViewb', function (actions) {
-  go_somewhere("Media Messages");
-});
-
-app_router.on('route:makeView', function (actions) {
-  go_somewhere(actions);
+    active_view.close();
+    //active_view.remove();
+    //active_view.unbind();
+*/
+  }
+  console.log("making");
+  active_view = new TopicListView({model:area});
 });
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -171,6 +126,6 @@ app_router.on('route:makeView', function (actions) {
 /////////////////////////////////////////////////////////////////////////////////
 
 (function($) {
-  Backbone.history.start(); // {pushState:true});
+  Backbone.history.start();
 })(jQuery);
 
