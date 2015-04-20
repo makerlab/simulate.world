@@ -155,8 +155,8 @@ var topic_10000 = {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 var topic_main = {
-  label:"SIMULATING OUR WORLD",
-  art:"mathis_peter_02.jpg",
+  label:"Simulate Our World",
+  art:"petermathis.jpg",
   children:[
     topic_1000,
     topic_2000,

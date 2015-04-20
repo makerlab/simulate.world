@@ -40,7 +40,7 @@ var TopicListView = Backbone.View.extend({
   render: function(){
     var self = this;
     var label = this.model.get("label").toUpperCase();
-    var art = this.model.get("art").toUpperCase();
+    var art = this.model.get("art");
     document.title = label;
     $(this.el).append("<h1>"+label+"</h1>");
     $(this.el).css("background-image", "url('/images/"+art+"')");
@@ -96,11 +96,17 @@ var AppRouter = Backbone.Router.extend({
 
 var app_router = new AppRouter;
 app_router.on('route:defaultRoute', function (actions) {
+alert("here");
+alert(actions);
+console.log("trying to show " + actions );
   var area = topics_by_name[actions];
   if(!area) area = backbonetopics;
   if(active_view) {
 
 console.log("trying a reset");
+active_view.remove();
+active_view.unbind();
+/*
 active_view.cleanup();
 console.log("cleanup done");
 active_view.collection.reset(area.children);
@@ -110,6 +116,7 @@ return;
     active_view.close();
     //active_view.remove();
     //active_view.unbind();
+*/
   }
   console.log("making");
   active_view = new TopicListView({model:area});
