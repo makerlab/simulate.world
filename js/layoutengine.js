@@ -2,50 +2,44 @@
 var Topic = Backbone.Model.extend({ });
 var TopicList = Backbone.Collection.extend({ model: Topic });
 
-var TopicView = Backbone.View.extend({
-  tagName: 'div',
-  //events: { 'click button#zoom': 'zoom', 'click': 'zoom', },
+var TopicThumbView = Backbone.View.extend({
+  events: { 'click button#zoom': 'zoom', 'click': 'zoom', }, // 1-3 does not work universally
   initialize: function() {
-    _.bindAll(this,'render','zoom');
-    //this.bind("reset",this.close);
-    //this.model.bind('zoom',this.zoom);
-    this.listenTo(this.model,'destroy',this.close);
+    _.bindAll(this,'zoom');
+    this.model.bind('zoom',this.zoom); // 1-3 does not work universally
+    //this.listenTo(this.model,'destroy',this.close); // not used
+    this.renderOnce();
   },
-  render: function() {
+  renderOnce: function() {
     this.art = this.model.get("art");
     this.label = this.model.get("label");
-    var blob = jQuery('<div/>', { class: 'folder', });
+    var blob = jQuery('<a/>', { class: 'topic', });
     blob.css("background-image", "url('/images/"+this.art+"')");
     blob.append("<h2>"+this.label+"</h2>");
-    blob.attr('href',this.label);
-    blob.on('click', this.zoom);
-    return blob;
+    blob.attr('href',"/#"+this.label); // 2-3 -> only one of these is needed
+    blob.on('click', this.zoom); // 3-3 -> only one of these is needed
+    this.setElement(blob); // rewrites this.el
   },
   zoom: function(ev) {
-    app_router.navigate(this.label); //,{trigger:true});
-    return false;
+    app_router.navigate(this.label,{trigger:true}); // trigger must be true on chrome
+    return false; // this seems to make no real difference
   },
-  close: function(){
-    this.remove();
-    this.unbind();
-    if (this.onClose){ this.onClose(); }
-  },
+  //close: function(){
+  //  this.remove();
+  //  this.unbind();
+  //  if (this.onClose){ this.onClose(); }
+  //},
 });
 
 var TopicListView = Backbone.View.extend({
   views: [],
   initialize: function(options){
-    $('body').append(this.el);
-    this.remake_collection();
-    _.bindAll(this, 'render');
-  },
-  remake_collection: function() {
-    this.collection = this.model.children; 
-    //this.collection.bind('add',this.appendItem);
-    //this.listenTo(this.collection,'reset',this.render);
     this.label = this.model.get("label").toUpperCase();
     this.art = this.model.get("art");
-    this.render();
+    this.notes = this.model.get("notes");
+    this.collection = this.model.children; 
+    //this.listenTo(this.collection,'reset',this.render);
+    this.renderOnce();
   },
   hide: function() {
     this.$el.hide();
@@ -54,21 +48,36 @@ var TopicListView = Backbone.View.extend({
     this.$el.show();
     document.title = this.label;
   },
-  render: function(){
+  renderOnce: function(){
     document.title = this.label;
-    $(this.el).append("<h1>"+this.label+"</h1>");
-    $(this.el).css("background-image", "url('/images/"+this.art+"')");
-    var self = this;
-    self.views = [];
-    _(this.collection.models).each(function(item){ self.appendItem(item); },this);
-    $(this.el).append("<br style=clear:both;/>");
-    $(this.el).append("<br/>");
-    $(this.el).append("<p></p>");
-  },
-  appendItem: function(item) {
-    item.view = new TopicView({model:item});
-    this.views.push(item.view);
-    $(this.el).append(item.view.render());
+
+    // some procedural layout... a big backdrop with the enumeration of topics within it
+    if(1) {
+      var blob = jQuery('<div/>');
+      blob.append("<h1>"+this.label+"</h1>");
+      blob.css("background-image", "url('/images/"+this.art+"')");
+      this.views = [];
+      var self = this;
+      _(this.collection.models).each(function(item){
+        item.view = new TopicThumbView({model:item});
+        this.views.push(item.view);
+        blob.append(item.view.$el);
+      },this);
+      blob.append("<br style=clear:both;/>"); // this is needed for the background div height to cover the topics
+      this.$el.append(blob);
+    }
+
+    // presenters notes
+    if(this.notes) {
+      var blob = jQuery('<div/>', { class: 'notes' });
+      var html = rho.toHtml(this.notes);
+      blob.append(html);
+      blob.append("<br style=clear:both;/>");
+      this.$el.append(blob);
+    }
+
+    // manually attach to world ourselves - this whole routine is currently called once only
+    $('body').append(this.$el);
   },
   freshen_contents: function(model) {
     // manually remove all views by hand for now xxx improve?
@@ -115,29 +124,25 @@ var current_view;
 var allviews = {};
 
 function go_somewhere(path) {
-  if(current_view) current_view.hide();
+  if(current_view) {
+    console.log("hiding view: " + current_view.label);
+    current_view.hide();
+  }
   var topic = topics_by_name[path];
   if(!topic) {
-    console.log("did not find view - assuming default");
     topic = topic_main;
   }
-  console.log("considering topic " + topic.get("label"));
-  console.log(topic);
-  var foundview = allviews[topic.get("label")];
-  console.log(topic.view);
-  console.log(foundview);
-
+  var label = topic.label = topic.get("label");
+  var foundview = allviews[label];
   if(!foundview) {
     topic.view = new TopicListView({model:topic});
-    console.log("produced a new view");
-    console.log(topic.view.$el);
-    topic.view.$el.attr("id",topic.get("label"));
+    topic.view.$el.attr("id",label);
+    console.log("produced a new view from scratch and attached to body for: " + label);
   } else {
     foundview.show();
   }
-  current_view = topic.view;
-  allviews[topic.get("label")] = current_view;
-  console.log("made a view " + topic.get("label"));
+  allviews[label] = current_view = topic.view;
+  console.log("showing view: " + label);
 };
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -146,23 +151,13 @@ function go_somewhere(path) {
 
 var AppRouter = Backbone.Router.extend({
   routes: {
-    "a": "makeViewa",
-    "b": "makeViewb",
-    "*actions": "makeView"
+    "*actions": "OnceUponATime"
   }
 });
 
 var app_router = new AppRouter;
 
-app_router.on('route:makeViewa', function (actions) {
-  go_somewhere("The Beauty of our World");
-});
-
-app_router.on('route:makeViewb', function (actions) {
-  go_somewhere("Media Messages");
-});
-
-app_router.on('route:makeView', function (actions) {
+app_router.on('route:OnceUponATime', function (actions) {
   go_somewhere(actions);
 });
 
