@@ -34,14 +34,17 @@ h2 {
   text-shadow: 0px 1px 2px #ddd;
 }
 
-.notes {
-  color: black;
-  font-family: 'Open Sans',sans-serif;
-  font-weight: 400;
-  padding: 8px;
+.page {
+  background: url('') no-repeat center center fixed; 
+  background-color: #f0f0f0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 .topic {
+/*  background: url('') no-repeat center center fixed; */
+  background-color: #f0f0f0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -50,8 +53,14 @@ h2 {
   height: 200px; 
   float: left;
   margin: 8px;
-  border: 0px solid white;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.notes {
+  color: black;
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 400;
+  padding: 8px;
 }
 
 a {

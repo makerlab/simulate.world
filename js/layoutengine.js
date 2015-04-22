@@ -53,7 +53,7 @@ var TopicListView = Backbone.View.extend({
 
     // some procedural layout... a big backdrop with the enumeration of topics within it
     if(1) {
-      var blob = jQuery('<div/>');
+      var blob = jQuery('<div/>', { class: 'page' } );
       blob.append("<h1>"+this.label+"</h1>");
       blob.css("background-image", "url('/images/"+this.art+"')");
       this.views = [];
