@@ -3,23 +3,54 @@ var topic_1010 = {
   kind:"card",
   label:"Our world from space",
   art:"ATSIII_10NOV67_153107",
+  notes:
+`
+Let’s take a deep breath and consider our beautiful world.
+
+The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
+
+This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
+
+We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
+`
 };
  
 var topic_1020 = {
   kind:"card",
   label:"Our world from space",
   art:"ATSIII_10NOV67_153107",
+  notes:
+`
+Let’s take a deep breath and consider our beautiful world.
+
+The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
+
+This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
+
+We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
+`
 };
  
 var topic_1030 = {
   kind:"card",
   label:"Our world from space",
   art:"ATSIII_10NOV67_153107",
+  notes:
+`
+Let’s take a deep breath and consider our beautiful world.
+
+The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
+
+This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
+
+We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
+`
 };
  
 var topic_ourworld = {
   label:"Our World",
   art:"hike.jpg",
+  kind:"deck",
   children:[
     topic_1010,
     topic_1020,
@@ -27,7 +58,6 @@ var topic_ourworld = {
   ],
   notes:
 `
-
 Let’s take a deep breath and consider our beautiful world.
 
 The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.

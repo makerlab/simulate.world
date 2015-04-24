@@ -43,7 +43,6 @@ h2 {
 }
 
 .topic {
-/*  background: url('') no-repeat center center fixed; */
   background-color: #f0f0f0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -56,11 +55,24 @@ h2 {
   box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 }
 
-.notes {
+.topicdetail {
+  background-color: #f0f0f0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 800px;
+  height: 600px; 
+  float: left;
+}
+
+.topicdetailnotes {
   color: black;
   font-family: 'Open Sans',sans-serif;
   font-weight: 400;
   padding: 8px;
+  float left;
+  border: 3px solid red;
 }
 
 a {

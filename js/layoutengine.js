@@ -4,13 +4,16 @@ var TopicList = Backbone.Collection.extend({ model: Topic });
 
 var TopicThumbView = Backbone.View.extend({
   events: { 'click button#zoom': 'zoom', 'click': 'zoom', }, // 1-3 does not work universally
-  initialize: function() {
+  initialize: function(opts) {
     _.bindAll(this,'zoom');
+    this.kind = opts.kind;
+    //this.model = opts.model; // not needed
     this.model.bind('zoom',this.zoom); // 1-3 does not work universally
     //this.listenTo(this.model,'destroy',this.close); // not used
-    this.renderOnce();
+    if(this.kind != "deck") this.renderThumb(); else this.renderDetail();
   },
-  renderOnce: function() {
+
+  renderThumb: function() {
     this.art = this.model.get("art");
     this.label = this.model.get("label");
     var blob = jQuery('<a/>', { class: 'topic', });
@@ -20,6 +23,21 @@ var TopicThumbView = Backbone.View.extend({
     blob.on('click', this.zoom); // 3-3 -> only one of these is needed
     this.setElement(blob); // rewrites this.el
   },
+
+  renderDetail: function() {
+    this.art = this.model.get("art");
+    this.label = this.model.get("label");
+    this.notes = this.model.get("notes");
+    var wrapper = jQuery('<div/>');
+    t = jQuery('<div/>', { class: 'topicdetail' });
+    t.css("background-image", "url('/images/"+this.art+"')");
+    wrapper.append(t);
+    var s = jQuery('<div/>', { clasS: 'topicdetailnotes' } );
+    s.append(rho.toHtml(this.notes));
+    wrapper.append(s);
+    this.setElement(wrapper); 
+  },
+
   zoom: function(ev) {
     app_router.navigate(this.label,{trigger:true}); // trigger must be true on chrome
     return false; // this seems to make no real difference
@@ -36,9 +54,8 @@ var TopicListView = Backbone.View.extend({
   initialize: function(options){
     this.label = this.model.get("label").toUpperCase();
     this.art = this.model.get("art");
-    this.notes = this.model.get("notes");
+    this.kind = this.model.get("kind");
     this.collection = this.model.children; 
-    //this.listenTo(this.collection,'reset',this.render);
     this.renderOnce();
   },
   hide: function() {
@@ -51,28 +68,23 @@ var TopicListView = Backbone.View.extend({
   renderOnce: function(){
     document.title = this.label;
 
-    // some procedural layout... a big backdrop with the enumeration of topics within it
+    // this layout has a left side for all of the images and a right side for all of the notes
+    // and if there is insufficient room then i guess they fold together
+
     if(1) {
       var blob = jQuery('<div/>', { class: 'page' } );
-      blob.append("<h1>"+this.label+"</h1>");
-      blob.css("background-image", "url('/images/"+this.art+"')");
+      if(this.kind != "deck") {
+        blob.append("<h1>"+this.label+"</h1>");
+        blob.css("background-image", "url('/images/"+this.art+"')");
+      }
       this.views = [];
       var self = this;
       _(this.collection.models).each(function(item){
-        item.view = new TopicThumbView({model:item});
+        item.view = new TopicThumbView({model:item,kind:this.kind});
         this.views.push(item.view);
         blob.append(item.view.$el);
       },this);
       blob.append("<br style=clear:both;/>"); // this is needed for the background div height to cover the topics
-      this.$el.append(blob);
-    }
-
-    // presenters notes
-    if(this.notes) {
-      var blob = jQuery('<div/>', { class: 'notes' });
-      var html = rho.toHtml(this.notes);
-      blob.append(html);
-      blob.append("<br style=clear:both;/>");
       this.$el.append(blob);
     }
 
