@@ -14,7 +14,7 @@ The first photographs of our whole planet were taken in 1967. In a sense that ma
 
 As far as we know this Earth is the only place in the universe that has life. Beautiful for its own reasons, for its diversity and complexity, it may also be unique.
 
-This world shapes us. We are warmed by the same sun, breath the same air. Simple acts such as eating food or drinking water are connected to an extraordinary chain of phenomena. Even our awareness is sensate, our reasoning and values are shaped by this world. And just was the world shaped us, we are now beginning to shape it.
+This world shapes us. We are warmed by the same sun, breath the same air. Simple acts such as eating food or drinking water are connected to an extraordinary chain of phenomena. Even our awareness is sensate, our reasoning and values are shaped by this world. And just as the world shaped us, we are now beginning to shape it.
 `
 };
  
