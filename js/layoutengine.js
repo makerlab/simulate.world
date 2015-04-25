@@ -2,59 +2,79 @@
 var Topic = Backbone.Model.extend({ });
 var TopicList = Backbone.Collection.extend({ model: Topic });
 
+var TopicDetailView = Backbone.View.extend({
+  initialize: function(opts) {
+    this.art = this.model.get("art");
+    this.label = this.model.get("label");
+    this.kind = this.model.get("kind");
+    this.markup = this.model.get("notes");
+    this.collection = this.model.children; 
+    this.renderOnce();
+  },
+  renderOnce: function() {
+    var wrapper = jQuery('<div/>');
+
+    // art
+    var artwrapper = jQuery('<div/>', { class: 'topicdetail' } );
+    var art = jQuery('<img/>', { class: 'topicdetailimage', src: '/images/'+this.art, alt: this.label, });
+    artwrapper.append(art);
+    wrapper.append(artwrapper);
+
+    // overlays
+    _(this.collection.models).each(function(child){
+      var markup = child.get("notes");
+      var style = child.get("style"); if(!style) style = "top:10px;left:10px;";
+      var text = jQuery('<div/>', {
+        class: 'topicdetailoverlay',
+        html:markup,
+        style: style,
+      });
+      artwrapper.append(text);
+    });
+
+    // presenters notes
+    var markup = jQuery('<span/>', { class: 'topicdetailnotes',html:rho.toHtml(this.markup) });
+    wrapper.append(markup);
+    art.on('click', function() { $('.topicdetailnotes').toggle(); });
+    markup.on('click', function() { $('.topicdetailnotes').toggle(); });
+
+    // set wrapper
+    this.setElement(wrapper); 
+  },
+});
+
 var TopicThumbView = Backbone.View.extend({
   events: { 'click button#zoom': 'zoom', 'click': 'zoom', }, // 1-3 does not work universally
   initialize: function(opts) {
     _.bindAll(this,'zoom');
-    this.kind = opts.kind;
-    //this.model = opts.model; // not needed
+    this.art = this.model.get("art");
+    this.label = this.model.get("label");
+    this.kind = this.model.get("kind");
+    this.markup = this.model.get("notes");
+    this.collection = this.model.children; 
     this.model.bind('zoom',this.zoom); // 1-3 does not work universally
-    //this.listenTo(this.model,'destroy',this.close); // not used
-    if(this.kind != "deck") this.renderThumb(); else this.renderDetail();
+    this.renderOnce();
   },
-
-  renderThumb: function() {
-    this.art = this.model.get("art");
-    this.label = this.model.get("label");
-    var blob = jQuery('<a/>', { class: 'topic', });
-    blob.css("background-image", "url('/images/"+this.art+"')");
-    blob.append("<h2>"+this.label+"</h2>");
-    blob.attr('href',"/#"+this.label); // 2-3 -> only one of these is needed
-    blob.on('click', this.zoom); // 3-3 -> only one of these is needed
-    this.setElement(blob); // rewrites this.el
+  renderOnce: function() {
+    var wrapper = jQuery('<a/>', { class: 'topicthumb', });
+    wrapper.css("background-image", "url('/images/"+this.art+"')");
+    wrapper.append("<h2>"+this.label+"</h2>");
+    wrapper.attr('href',"/#"+this.label); // 2-3 -> only one of these is needed
+    wrapper.on('click', this.zoom); // 3-3 -> only one of these is needed
+    this.setElement(wrapper); // rewrites this.el
   },
-
-  renderDetail: function() {
-    this.art = this.model.get("art");
-    this.label = this.model.get("label");
-    this.notes = this.model.get("notes");
-    var wrapper = jQuery('<div/>');
-    t = jQuery('<div/>', { class: 'topicdetail' });
-    t.css("background-image", "url('/images/"+this.art+"')");
-    wrapper.append(t);
-    var s = jQuery('<div/>', { clasS: 'topicdetailnotes' } );
-    s.append(rho.toHtml(this.notes));
-    wrapper.append(s);
-    this.setElement(wrapper); 
-  },
-
   zoom: function(ev) {
     app_router.navigate(this.label,{trigger:true}); // trigger must be true on chrome
     return false; // this seems to make no real difference
   },
-  //close: function(){
-  //  this.remove();
-  //  this.unbind();
-  //  if (this.onClose){ this.onClose(); }
-  //},
 });
 
 var TopicListView = Backbone.View.extend({
-  views: [],
   initialize: function(options){
-    this.label = this.model.get("label").toUpperCase();
     this.art = this.model.get("art");
+    this.label = this.model.get("label");
     this.kind = this.model.get("kind");
+    this.markup = this.model.get("notes");
     this.collection = this.model.children; 
     this.renderOnce();
   },
@@ -63,50 +83,34 @@ var TopicListView = Backbone.View.extend({
   },
   show: function() {
     this.$el.show();
-    document.title = this.label;
+    document.title = this.label.toUpperCase(); // refix label when jumping back here
   },
   renderOnce: function(){
-    document.title = this.label;
+    document.title = this.label.toUpperCase();
 
-    // this layout has a left side for all of the images and a right side for all of the notes
-    // and if there is insufficient room then i guess they fold together
-
-    if(1) {
-      var blob = jQuery('<div/>', { class: 'page' } );
-      if(this.kind != "deck") {
-        blob.append("<h1>"+this.label+"</h1>");
-        blob.css("background-image", "url('/images/"+this.art+"')");
-      }
-      this.views = [];
-      var self = this;
+    // for a deck view in detail show each card full sized
+    var wrapper = jQuery('<div/>', { class: 'page' } );
+    if(this.kind == "deck") {
       _(this.collection.models).each(function(item){
-        item.view = new TopicThumbView({model:item,kind:this.kind});
-        this.views.push(item.view);
-        blob.append(item.view.$el);
+        item.view = new TopicDetailView({model:item});
+        wrapper.append(item.view.$el);
       },this);
-      blob.append("<br style=clear:both;/>"); // this is needed for the background div height to cover the topics
-      this.$el.append(blob);
+    }
+
+    // for a thumbnail overview show a packed set of images - also show any backdrop art for the whole frame
+    else {
+      wrapper.append("<h1>"+this.label.toUpperCase()+"</h1>");
+      wrapper.css("background-image", "url('/images/"+this.art+"')");
+      _(this.collection.models).each(function(item){
+        item.view = new TopicThumbView({model:item});
+        wrapper.append(item.view.$el);
+      },this);
+      wrapper.append("<br style=clear:both;/>"); // this is needed for the background div height to cover the topics
     }
 
     // manually attach to world ourselves - this whole routine is currently called once only
+    this.$el.append(wrapper);
     $('body').append(this.$el);
-  },
-  freshen_contents: function(model) {
-    // manually remove all views by hand for now xxx improve?
-    // xxx doesn't actually detach the view from the html... why? xxx
-    for(var i = 0; i < this.views.length; i++) {
-       var view = this.views[i];
-       view.close();
-    };
-    this.views = [];
-    this.collection.reset();
-    $(this.el).empty();
-    this.model = model;
-    this.render();
-  },
-  close: function(){
-    this.remove();
-    this.unbind();
   },
 });
 
@@ -131,6 +135,11 @@ function convert_to_backbone(parent) {
 }
 
 topic_main = convert_to_backbone(topic_main);
+
+/////////////////////////////////////////////////////////////////////////////////
+// routing support
+// keep alll pages in memory for now...
+/////////////////////////////////////////////////////////////////////////////////
 
 var current_view;
 var allviews = {};

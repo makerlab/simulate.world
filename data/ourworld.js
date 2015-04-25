@@ -1,78 +1,81 @@
 
-var topic_1010 = {
-  kind:"card",
+var topic_ourworld_100 = {
   label:"Our world from space",
-  art:"ATSIII_10NOV67_153107",
+  art:"ATSIII_10NOV67_153107.jpg",
+  children: [
+    { kind:"text", notes:"<h2>Let's take a deep breath</h2>", style:"top:0px;left:0px" },
+    { kind:"text", notes:"<h2>And consider our home</h2>", style:"bottom:0px;right:0px" }
+  ],
   notes:
 `
-Let’s take a deep breath and consider our beautiful world.
+Let’s take a deep breath and consider our home.
 
-The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
+The first photographs of our whole planet were taken in 1967. In a sense that marks the beginning of an awareness that we are a single ecosystem.
 
-This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
+As far as we know this Earth is the only place in the universe that has life. Beautiful for its own reasons, for its diversity and complexity, it may also be unique.
 
-We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
+This world shapes us. We are warmed by the same sun, breath the same air. Simple acts such as eating food or drinking water are connected to an extraordinary chain of phenomena. Even our awareness is sensate, our reasoning and values are shaped by this world. And just was the world shaped us, we are now beginning to shape it.
 `
 };
  
-var topic_1020 = {
-  kind:"card",
-  label:"Our world from space",
-  art:"ATSIII_10NOV67_153107",
+var topic_ourworld_200 = {
+  label:"Individual experiences are unique",
+  art:"hike.jpg",
+  children: [
+    { kind:"text", notes:"<h2>Our experiences are each unique</h2>", style:"bottom:0px;left:0px" }
+  ],
   notes:
 `
-Let’s take a deep breath and consider our beautiful world.
-
-The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
-
-This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
-
-We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
+Each of our experiences are unique. We each touch a different part of the world and together those experiences may contribute to a larger picture. Some of us grew up near mountains, others in cities, some on the prairies, or in small towns or along coasts with beaches. As a result we each value different things.
 `
 };
  
-var topic_1030 = {
-  kind:"card",
-  label:"Our world from space",
-  art:"ATSIII_10NOV67_153107",
+var topic_ourworld_300 = {
+  label:"Your experiences",
+  art:"camping.jpg",
+  children: [
+    { kind:"text", notes:"<h2>What are your most vivid memories?</h2>", style:"bottom:0px;left:0px" }
+  ],
   notes:
 `
-Let’s take a deep breath and consider our beautiful world.
+How many of your own most vivid memories and experiences are of times that you spent exploring, hiking, climbing, running outside? How many of these experiences do you remember as opposed to times at the office or working? Are your dreams most often of spending more time in nature or more time working on work?
+`
+};
 
-The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
-
-This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
-
-We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
+var topic_ourworld_400 = {
+  label:"My experiences",
+  art:"anselm_hook_lake_louise_2006.jpg",
+  children: [
+    { kind:"text", notes:"<h2>For me it was growing up in Alberta</h2><h2>near the Rockies</h2>", style:"bottom:0px;left:0px" }
+  ],
+  notes:
+`
+I myself grew up near the Rocky Mountains in Alberta and was lucky enough to spend most of my time climbing and hiking. My appreciation for the world is shaped by these memories.
+`
+};
+ 
+var topic_ourworld_500 = {
+  label:"Focus",
+  art:"glacier.jpg",
+  children: [
+    { kind:"text", notes:"<h2>Do you feel our world is worth protecting?</h2>", style:"bottom:0px;left:0px" }
+  ],
+  notes:
+`
+It feels important to keep what we care about in mind. Do you feel it is worth protecting? Is our world something you cherish and love? Or is it somehow damaged beyond repair? Do you think we have any power to save it? Or that we need to?
 `
 };
  
 var topic_ourworld = {
+  kind:"deck",
   label:"Our World",
   art:"hike.jpg",
-  kind:"deck",
   children:[
-    topic_1010,
-    topic_1020,
-    topic_1030,
+    topic_ourworld_100,
+    topic_ourworld_200,
+    topic_ourworld_300,
+    topic_ourworld_400,
+    topic_ourworld_500,
   ],
-  notes:
-`
-Let’s take a deep breath and consider our beautiful world.
-
-The earth is the only place in the universe that has life as far as we know. It is beautiful for its own reasons: simply for the diversity and complexity of the natural systems within it.
-
-This apprehension is fairly new however - it wasn’t even until 1967 that we actually even saw our world as a whole for the first time. In a sense that marks the beginning of a global awareness.
-
-We live in this space together, breathing together, having the sun warm our skins. Even simple acts such as eating food or drinking water are deeply connected to an extraordinary chain of phenomena. So much of our awareness is sensate, even our reason and values comes from a close contact with nature.
-
-Each of our experiences are unique. We each touch a different part of the world and together those experiences may combine and contribute to a larger picture. Some of us grew up near mountains, others in cities, some on the prairies, or in small towns or along coasts with beaches. As a result we each value different things.
-
-How many of your own most vivid memories and experiences are of times that you spent exploring, hiking, climbing, running outside? How many camping trips do you remember as opposed to times at the office? Are your dreams most often of spending more time in nature or more time indoors working on projects?
-
-I myself grew up near the Rocky Mountains in Alberta and spent much of my youth climbing and hiking in those mountains. My own appreciation for the world is shaped by these memories.
-
-I feel it’s just important to keep what we care about in mind as we look more closely at some of the challenges we face. Do you feel it is worth protecting? That it is something you cherish and love? Or is it somehow damaged beyond repair? Do you think we have any power to save it? Or that we need to?
-`
 };
 
