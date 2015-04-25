@@ -5,6 +5,7 @@ var TopicList = Backbone.Collection.extend({ model: Topic });
 var TopicDetailView = Backbone.View.extend({
   initialize: function(opts) {
     this.art = this.model.get("art");
+    this.provenance = this.model.get("provenance");
     this.label = this.model.get("label");
     this.kind = this.model.get("kind");
     this.markup = this.model.get("notes");
@@ -16,7 +17,7 @@ var TopicDetailView = Backbone.View.extend({
 
     // art
     var artwrapper = jQuery('<div/>', { class: 'topicdetail' } );
-    var art = jQuery('<img/>', { class: 'topicdetailimage', src: 'images/'+this.art, alt: this.label, });
+    var art = jQuery('<img/>', { class: 'topicdetailimage', src: 'images/'+this.art, alt: this.label + " " + this.provenance, });
     artwrapper.append(art);
     wrapper.append(artwrapper);
 
@@ -48,10 +49,12 @@ var TopicThumbView = Backbone.View.extend({
   initialize: function(opts) {
     _.bindAll(this,'zoom');
     this.art = this.model.get("art");
+    this.provenance = this.model.get("provenance");
     this.label = this.model.get("label");
     this.kind = this.model.get("kind");
     this.markup = this.model.get("notes");
-    this.collection = this.model.children; 
+    this.url = this.model.get("url"); if(!this.url) this.url = "/#" + this.label;
+    this.collection = this.model.children;
     this.model.bind('zoom',this.zoom); // 1-3 does not work universally
     this.renderOnce();
   },
@@ -59,11 +62,12 @@ var TopicThumbView = Backbone.View.extend({
     var wrapper = jQuery('<a/>', { class: 'topicthumb', });
     wrapper.css("background-image", "url('images/"+this.art+"')");
     wrapper.append("<h2>"+this.label+"</h2>");
-    wrapper.attr('href',"/#"+this.label); // 2-3 -> only one of these is needed
+    wrapper.attr('href',this.url); // 2-3 -> only one of these is needed
     wrapper.on('click', this.zoom); // 3-3 -> only one of these is needed
     this.setElement(wrapper); // rewrites this.el
   },
   zoom: function(ev) {
+    if(this.model.get("url")) { location.href = this.url; return; } // hack
     app_router.navigate(this.label,{trigger:true}); // trigger must be true on chrome
     return false; // this seems to make no real difference
   },
@@ -72,6 +76,7 @@ var TopicThumbView = Backbone.View.extend({
 var TopicListView = Backbone.View.extend({
   initialize: function(options){
     this.art = this.model.get("art");
+    this.provenance = this.model.get("provenance");
     this.label = this.model.get("label");
     this.kind = this.model.get("kind");
     this.markup = this.model.get("notes");

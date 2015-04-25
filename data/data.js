@@ -1,5 +1,5 @@
 
-var topic_main = {
+var topic_thesis = {
   label:"Simulate Our World",
   art:"petermathis.jpg",
   children:[
@@ -16,3 +16,52 @@ var topic_main = {
   ],
 };
 
+var model1 = {
+  label:"Modeling oil",
+  art:"model_oil.jpg",
+  url:"/sim",
+};
+
+var model2 = {
+  label:"Modeling water",
+  art:"model_water.jpg",
+  url:"/sim",
+};
+
+var model3 = {
+  label:"Modeling water",
+  art:"model_water.jpg",
+  url:"/sim",
+};
+
+var model4 = {
+  label:"Modeling water",
+  art:"model_water.jpg",
+  url:"/sim",
+};
+
+var model5 = {
+  label:"Modeling water",
+  art:"model_oil.jpg",
+  url:"/sim",
+};
+
+var model6 = {
+  label:"Modeling water",
+  art:"model_water.jpg",
+  url:"/sim",
+};
+
+var topic_main = {
+  label:"Simulate.World",
+  art:"petermathis.jpg",
+  children:[
+    topic_thesis,
+    model1,
+    model2,
+    model3,
+    model4,
+    model5,
+    model6,
+  ],
+};
