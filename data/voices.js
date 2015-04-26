@@ -17,10 +17,12 @@ var topic_voices = {
 { label:"Stephen Lansing", },
 { label:"EO Wilson", },
 ],
+};
 
-  notes:
+/*
 
-`eo wilson
+
+eo wilson
 paul hawken
 derrek jensen
 elizabeth kolbert - the sixth extinction
@@ -52,11 +54,7 @@ Distributed Hydrological Modeling - K J Beven
 The Alexandria Digital Earth Modeling System
 The Playful World - Mark Pesce
 Earth System Modeling Framework (ESMF)
-`
 
-};
-
-/*
 
 articles - perhaps a list of these also? possibly in a different layout view?
 or can we have a streaming news view that is a combo of other feeds? { articles, sims, etc? blog posts? }
