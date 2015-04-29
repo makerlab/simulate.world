@@ -1,14 +1,9 @@
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// Media Messages
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-var topic_superpowers = {
-  label:"Emerging Superpowers",
+var topic_superpowers_100 = {
+  label:"nothing",
   art:"puyehue.jpg",
   notes:
-"\n\
-Objectively speaking we do have (emerging) superpowers\n\
+"Objectively speaking we do have (emerging) superpowers\n\
 \n\
 Luckily for us just as we’re starting to have a real impact on the world, we’re also developing surprising powers.\n\
 \n\
@@ -23,13 +18,40 @@ Wikipedia - of course.\n\
 FourSquare\n\
 OpenStreetMaps and similar projects like GreenMaps.\n\
 Code For America and their work.\n\
-\n\
-2) Earth Sciences has also blossomed. We’re beginning to understand the complexity and subtle interactions among natural forces in ways we did not before. In the 1960’s and 80’s the Army Corp of Engineers engaged in dredging in Louisiana and the Florida wetlands in such a way that put us at risk for what happened with Hurricane Katrina. Now, based on satellite data and better understanding, these kinds of projects are less justifiable. We have a better and more technical understanding of the complexity of these large scale systems and are able to make better decisions.\n\
-\n\
+"
+};
+
+var topic_superpowers_200 = {
+  label:"nothing",
+  art:"puyehue.jpg",
+  notes:
+"2) Earth Sciences has also blossomed. We’re beginning to understand the complexity and subtle interactions among natural forces in ways we did not before. In the 1960’s and 80’s the Army Corp of Engineers engaged in dredging in Louisiana and the Florida wetlands in such a way that put us at risk for what happened with Hurricane Katrina. Now, based on satellite data and better understanding, these kinds of projects are less justifiable. We have a better and more technical understanding of the complexity of these large scale systems and are able to make better decisions.\n\
+"
+};
+
+var topic_superpowers_300 = {
+  label:"nothing",
+  art:"puyehue.jpg",
+  notes:
+"\n\
 3) Moores law is acting in our favor. Machine computation, big data and computer simulations are able to simulate large scale outcomes of complex systems. Hybrid human/machine systems that combine human intuition with machine speed and memory are able to search large problem spaces for sweet spots faster than either could do alone. Being able to synthesize the input of many people also creates a possibility that more minds can participate in looking at and understanding the problems we are facing.\n\
-\n\
+"
+};
+
+var topic_superpowers_400 = {
+  label:"nothing",
+  art:"puyehue.jpg",
+  notes:
+"\n\
 4) We have enough history as a planetary civilization to understand our impacts on our world. We’ve seen that side-effects can dominate over intended consequences. And we’ve succeeded on a global scale such as eradicating polio under the Global Polio Eradication Initiative and eradicating chlorofluorocarbons under the Montreal Protocol. We are struggling to unify around reduction of CO2 emissions and several initiatives have failed (such as the Kyoto Protocol) but this too is becoming a visible global agenda item.\n\
-\n\
+"
+};
+
+var topic_superpowers_500 = {
+  label:"nothing",
+  art:"puyehue.jpg",
+  notes:
+"\n\
 These powers together hint at a new kind of organism; a kind of being that has a planetary scale vision, apprehension and decision making ability.\n\
 Organizing better; the missing piece?\n\
 \n\
@@ -55,3 +77,16 @@ The question is can a group of very small very smart monkeys learn to understand
 "
 };
 
+var topic_superpowers = {
+  kind:"deck",
+  label:"Emerging Superpowers",
+  art:"puyehue.jpg",
+  children:[
+    topic_superpowers_100,
+    topic_superpowers_200,
+    topic_superpowers_300,
+    topic_superpowers_400,
+    topic_superpowers_500
+  ]
+};
+ 
