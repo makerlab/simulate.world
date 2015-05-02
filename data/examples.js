@@ -10,10 +10,10 @@ var topic_positive_impacts = {
   art:"stelprdb5284727.jpg",
   provenance:"http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5284727.jpg",
   notes:
-"\
-It’s worth noting that not all influences are negative. Jesse Ausubel makes the case for a number of rebound effects happening due to changes in human behavior. For example he points out that there is more green cover now than there has been historically and that humans have dramatically improved crop yields over increasingly smaller regions of soil. It’s worth watching:\
-\
-http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities/\
+"\n\
+It’s worth noting that not all influences are negative. Jesse Ausubel makes the case for a number of rebound effects happening due to changes in human behavior. For example he points out that there is more green cover now than there has been historically and that humans have dramatically improved crop yields over increasingly smaller regions of soil. It’s worth watching:\n\
+\n\
+http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities/\n\
 "
 };
 
@@ -24,9 +24,9 @@ var topic_california_smelt = {
   art:"01californiasmelt.adapt.768.1.jpg",
   provenance:"http://news.nationalgeographic.com/2015/04/150403-smelt-california-bay-delta-extinction-endangered-species-drought-fish/",
   notes:
-"\
-http://news.nationalgeographic.com/2015/04/150403-smelt-california-bay-delta-extinction-endangered-species-drought-fish/\
-\
+"\n\
+http://news.nationalgeographic.com/2015/04/150403-smelt-california-bay-delta-extinction-endangered-species-drought-fish/\n\
+\n\
 The Sacramento–San Joaquin River Delta is similar to the Louisiana Delta but not quite as well recognized. It occupies about 1100 square miles, begins at the confluence of the Sacramento and San Joaquin rivers and ends at the bay. It’s been around for about 10,000 years, since the end of the last Ice Age, and was originally a large freshwater marsh with many shallow channels and sloughs surrounding islands of peat and tule. Agriculture has claimed most of the region and now the delta is actually below sea-level and protected by levees. It’s also a source for most of the water supply for central and southern California. There are 22 species of fish including Pacific Salmon, striped bass, steelhead trout, American shad and sturgeon. Of particular interest The U.S. Fish and Wildlife Service has found that the San Francisco Bay-Delta Distinct Population Segment (DPS) of longfin smelt is a key indicator species for the health of the Delta’s ecosystem. The smelt mainly inhabit the freshwater-saltwater mixing zone of the estuary, except during its spawning season, when it migrates upstream to freshwater following winter 'first flush' flow events (around March to May). Because of its one-year lifecycle and relatively low fecundity, it is very susceptible to changes in the environmental conditions of its native habitat. Efforts to protect the endangered fish from further decline have focused on limiting or modifying the large-scale pumping activities of state and federal water projects at the southern end of the estuary. Although allegations have been made that this protection has hurt California's agricultural sector, with the devastation of hundreds of thousands of acres of farmland and the loss of tens of thousands of jobs in the Central Valley, a 2009 United States Department of Agriculture study estimated that job losses due to smelt protection were closer to 5,000.",
 };
 
@@ -74,17 +74,17 @@ var topic_balinese_water_temple = {
   art:"Ulun-Danu-Beratan-temple.jpg",
   provenance:"http://arounddeglobe.com/wp-content/uploads/2014/12/Ulun-Danu-Beratan-temple.jpg",
   notes:
-"\
-Balinese Water Temple Simulation\
-\
-Probably one of my favorite examples of civic simulations and the power of modeling is the essay on “Emergent Properties of Balinese Water Temples” by Steve Lansing. Steve happened to be in Bali during a time that the Balinese government was trying a new “intensive green agriculture”. The Green Revolution of the 1970’s brought a lot of new intensive farming techniques to communities around the world and for some reason these practices were failing in Bali. Steve built an actual computer simulation of the more traditional practices that the Balinese had been using and was able to show that the Green Revolution practices were actually not serving Bali. His thesis had a significant impact on government policy:\
-\
-https://www.youtube.com/watch?v=h9ozS8BKUFI\
-\
-http://www.ft.com/cms/s/2/83df61cc-caf2-11e1-8872-00144feabdc0.html\
-\
-http://www.jstor.org/discover/10.2307/681181?sid=21106116561983&uid=2&uid=3739256&uid=4&uid=3739808\
-\
+"\n\
+Balinese Water Temple Simulation\n\
+\n\
+Probably one of my favorite examples of civic simulations and the power of modeling is the essay on “Emergent Properties of Balinese Water Temples” by Steve Lansing. Steve happened to be in Bali during a time that the Balinese government was trying a new “intensive green agriculture”. The Green Revolution of the 1970’s brought a lot of new intensive farming techniques to communities around the world and for some reason these practices were failing in Bali. Steve built an actual computer simulation of the more traditional practices that the Balinese had been using and was able to show that the Green Revolution practices were actually not serving Bali. His thesis had a significant impact on government policy:\n\
+\n\
+https://www.youtube.com/watch?v=h9ozS8BKUFI\n\
+\n\
+http://www.ft.com/cms/s/2/83df61cc-caf2-11e1-8872-00144feabdc0.html\n\
+\n\
+http://www.jstor.org/discover/10.2307/681181?sid=21106116561983&uid=2&uid=3739256&uid=4&uid=3739808\n\
+\n\
 "
 };
 
@@ -95,14 +95,14 @@ var topic_wolves_in_yellowstone = {
   art:"yellowstone-wolves-whats-at-stake.jpg",
   provenance:"http://www.savebiogems.org/images/campaign-whats-at-stake/yellowstone-wolves-whats-at-stake.jpg",
   notes:
-"\
-A good example of unexpected consequences is the recent decision to reintroduce wolves into Yellowstone National Park. This had a significant impact on the local ecology including making the rivers run deeper and faster. The authors introduce the idea of a “trophic cascade” to explain how one change can have a deep effect on other parts of the system.\
-\
-If citizens in the Yellowstone bioregion had access to models that incorporated the facts, science and research of scientists in the region then it may have been possible to predict those outcomes prior to actually trying it.\
-\
-Reintroducing wolves is contentious because some farmers feel that wolves are a net negative (in that they kill livestock). This is a good example of where a better shared understanding between all stakeholders at a grassroots level would allow certain kinds of non-obvious decisions to be better agreed upon.\
-\
-https://www.youtube.com/watch?v=ysa5OBhXz-Q\
+"\n\
+A good example of unexpected consequences is the recent decision to reintroduce wolves into Yellowstone National Park. This had a significant impact on the local ecology including making the rivers run deeper and faster. The authors introduce the idea of a “trophic cascade” to explain how one change can have a deep effect on other parts of the system.\n\
+\n\
+If citizens in the Yellowstone bioregion had access to models that incorporated the facts, science and research of scientists in the region then it may have been possible to predict those outcomes prior to actually trying it.\n\
+\n\
+Reintroducing wolves is contentious because some farmers feel that wolves are a net negative (in that they kill livestock). This is a good example of where a better shared understanding between all stakeholders at a grassroots level would allow certain kinds of non-obvious decisions to be better agreed upon.\n\
+\n\
+https://www.youtube.com/watch?v=ysa5OBhXz-Q\n\
 "
 };
 
@@ -114,14 +114,14 @@ var topic_wells_in_rajasthans_alwar_district = {
   art:"Kankawadi-Fort.jpg",
   provenance:"http://www.delhi-carrental.com/blog/wp-content/uploads/2014/10/Kankawadi-Fort.jpg",
   notes:
-"\
-“The wells in Rajasthan’s Alwar District had dried up, thrusting the people into abject and seemingly inescapable poverty. The revival of traditional earthen dams to capture rainwater for recharging the underground water supply provided a tipping point that brought the wells back to life. And with the water came a better life for the people. It started in the spare, humble village of Gopalpura. Nearly a thousand villages are now following Gopalpura’s example.”\
-\
-http://www.ecotippingpoints.org/our-stories/indepth/india-rajasthan-rainwater-harvest-restoration-groundwater-johad.html\
-\
-This is an excellent example of how decisions can have impact at many levels. It also illuminates an often difficult to see association between poverty and environment. These people became poor because their environment was damaged. By finding ways to heal their watershed many of the traditions and values started to re-knit themselves back together.\
-\
-There are many more examples of this kind of work throughout the world. One of the groups working in on topics like this is https://www.digital-democracy.org/ .\
+"\n\
+“The wells in Rajasthan’s Alwar District had dried up, thrusting the people into abject and seemingly inescapable poverty. The revival of traditional earthen dams to capture rainwater for recharging the underground water supply provided a tipping point that brought the wells back to life. And with the water came a better life for the people. It started in the spare, humble village of Gopalpura. Nearly a thousand villages are now following Gopalpura’s example.”\n\
+\n\
+http://www.ecotippingpoints.org/our-stories/indepth/india-rajasthan-rainwater-harvest-restoration-groundwater-johad.html\n\
+\n\
+This is an excellent example of how decisions can have impact at many levels. It also illuminates an often difficult to see association between poverty and environment. These people became poor because their environment was damaged. By finding ways to heal their watershed many of the traditions and values started to re-knit themselves back together.\n\
+\n\
+There are many more examples of this kind of work throughout the world. One of the groups working in on topics like this is https://www.digital-democracy.org/ .\n\
 "
 };
 
