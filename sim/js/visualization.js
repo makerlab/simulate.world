@@ -44,8 +44,15 @@ function visualization_init() {
 
   scene.add( new THREE.AmbientLight( 0xc0c0c0 ) );
 
-  var light = new THREE.SpotLight( 0xcccccc, 0.3 );
-  light.position.set( -1500, 1500, 300 );
+  // a light
+
+
+var light = new THREE.DirectionalLight( 0xffffff, 0.5 );
+light.position.set( 0, 1, 0 );
+
+//  var light = new THREE.SpotLight( 0xcccccc, 0.3 );
+//  light.position.set( -1500, 1500, 300 );
+
   light.castShadow = true;
   light.shadowCameraNear = 200;
   light.shadowCameraFar = 2000; //camera.far;
@@ -96,6 +103,10 @@ function visualization_init() {
 
   // manipulators
   visualization_manipulator_build();
+
+
+
+
 }
 
 function visualization_resize() {
@@ -267,7 +278,85 @@ function visualization_mouseup( event ) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+function fixuvs( geometry ){
+
+    geometry.computeBoundingBox();
+
+    var max     = geometry.boundingBox.max;
+    var min     = geometry.boundingBox.min;
+
+    var offset  = new THREE.Vector2(0 - min.x, 0 - min.y);
+    var range   = new THREE.Vector2(max.x - min.x, max.y - min.y);
+
+    geometry.faceVertexUvs[0] = [];
+    var faces = geometry.faces;
+
+    for (i = 0; i < geometry.faces.length ; i++) {
+
+      var v1 = geometry.vertices[faces[i].a];
+      var v2 = geometry.vertices[faces[i].b];
+      var v3 = geometry.vertices[faces[i].c];
+
+      geometry.faceVertexUvs[0].push([
+        new THREE.Vector2( ( v1.x + offset.x ) / range.x , ( v1.y + offset.y ) / range.y ),
+        new THREE.Vector2( ( v2.x + offset.x ) / range.x , ( v2.y + offset.y ) / range.y ),
+        new THREE.Vector2( ( v3.x + offset.x ) / range.x , ( v3.y + offset.y ) / range.y )
+      ]);
+
+    }
+
+    geometry.uvsNeedUpdate = true;
+
+}
+
 function visualization_create_mesh( params ) {
+
+  var geometry = null;
+  var mesh = null;
+  var material = null;
+
+  var shape = params.get("shape"); // "sphere", "cube", or a named shapefile to load
+  var size  = params.get("size") || worldextent/2;
+  var c     = params.get("c");
+
+  switch(shape) {
+    case "sphere":
+      geometry = new THREE.SphereGeometry( size, 64, 64 );
+      material = new THREE.MeshPhongMaterial( { color: c } );
+      mesh = new THREE.Mesh( geometry, material );
+      visualization_mesh_finalize(mesh,params);
+      break;
+    case "cube":
+      geometry = new THREE.BoxGeometry( size,size,size );
+      material = new THREE.MeshLambertMaterial( { color: c } );
+      mesh = new THREE.Mesh( geometry, material );
+      visualization_mesh_finalize(mesh,params);
+      break;
+    case "california":
+      var loader = new THREE.OBJLoader();
+      loader.load('obj/california.obj',
+        function(mesh) {
+          //mesh = mesh.children[0];
+          mesh.scale.set(100,100,100);
+          mesh.rotation.set(0,90,0);
+          //fixuvs(mesh.children[0].geometry);
+          mesh.children[0].material = new THREE.MeshPhongMaterial( { ambient: 0x555555, color: 0xeeeeee, specular: 0xffffff, shininess: 50, shading: THREE.SmoothShading } );
+	  console.log(mesh);
+          // mesh.geometry.dynamic = 1;
+	  visualization_mesh_finalize(mesh,params);
+        },
+        function() {
+          console.log("...loading...")
+        },
+        function() {
+          console.log("loading err")
+        }
+      );
+      break;
+  }
+}
+
+function visualization_mesh_finalize(mesh,params) {
 
   var style = params.get("style"); // "world", "object", "spline"
   var shape = params.get("shape"); // "sphere", "cube", or a named shapefile to load
@@ -291,34 +380,18 @@ function visualization_create_mesh( params ) {
     y = ((worldextent) * Math.cos(phi));
   }
 
-  var material = null;
-  var geometry = null;
-  var mesh = null;
-
-  switch(shape) {
-    case "sphere":
-      geometry = new THREE.SphereGeometry( size, 64, 64 );
-      material = new THREE.MeshPhongMaterial( { color: c } );
-      break;
-    case "cube":
-      geometry = new THREE.BoxGeometry( size,size,size );
-      material = new THREE.MeshLambertMaterial( { color: c } );
-      break;
-  }
-
   // xxx todo set from params later
   // http://learningthreejs.com/blog/2013/09/16/how-to-make-the-earth-in-webgl/
   //material.map = THREE.ImageUtils.loadTexture('images/earth8000.jpg')
   //material.bumpMap = THREE.ImageUtils.loadTexture('images/earthbump1k.jpg')
   //material.bumpScale = 0.05;
-  //material.specularMap    = THREE.ImageUtils.loadTexture('images/earthspec1k.jpg')
-  //material.specular  = new THREE.Color('grey')
+  //material.specularMap = THREE.ImageUtils.loadTexture('images/earthspec1k.jpg')
+  //material.specular = new THREE.Color('grey')
 
-  mesh = new THREE.Mesh( geometry, material );
-  mesh.material.ambient = mesh.material.color;
+  if(mesh.material) mesh.material.ambient = mesh.material.color;
+
   mesh.castShadow = true;
   mesh.receiveShadow = true;
-
   mesh.pickable = pickable;
   mesh.moveable = moveable;
   mesh.cloneable = cloneable;
@@ -393,7 +466,7 @@ Feature = Backbone.Model.extend({
 });
 
 var features = [
-  new Feature({ name:"One", c:0xaaaaaa, shape:"sphere", size:100, style:"world"  }),
+  new Feature({ name:"One", c:0xaaaaaa, shape:"california", size:100, style:"world"  }),
   new Feature({ name:"Two", c:0xffff00, shape:"cube",   size:10, x:120  }),
   new Feature({ name:"Tre", c:0xff00ff, shape:"cube",   size:10, lat:0.01, lon:-10 }),
   new Feature({ name:"Tre", c:0xff00ff, shape:"cube",   size:10, lat:10, lon:-20 }),
