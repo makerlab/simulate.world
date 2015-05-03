@@ -221,7 +221,7 @@ function visualization_mousemove( event ) {
     return;
   }
 
-  var intersects = raycaster.intersectObject(world);
+  var intersects = raycaster.intersectObject(world.world);
   var target = intersects.length ? intersects[0].object : 0;
   if(!target) {
     // there is no world for the mouse to move over... do nothing
@@ -235,6 +235,7 @@ function visualization_mousemove( event ) {
 
   // currently moving something?
   if(manipulator_focus.pickable || manipulator_focus.moveme) {
+    console.log("xyz " + xyz.x + " " + xyz.y + " " + xyz.z + " " + manipulator_parent.scale.x );
     visualization_move_mesh(manipulator_parent,xyz);
   }
 
@@ -277,7 +278,7 @@ function visualization_mousedown( event ) {
   }
 
   // user clicked on something and here is where in the world they clicked on it
-  var intersects = raycaster.intersectObject(world);
+  var intersects = raycaster.intersectObject(world.world);
   var target = intersects.length ? intersects[0].object : 0;
   if(!target) {
     console.log("no world");
@@ -369,31 +370,26 @@ function visualization_create_mesh( params ) {
       mesh.params = params;
       break;
     case "california":
-      geometry = new THREE.BoxGeometry( size*10,size*10,1 );
-      material = new THREE.MeshLambertMaterial( { color: c } );
-      mesh = new THREE.Mesh( geometry, material );
-      params.mesh = visualization_mesh_finalize(mesh,params);
-      mesh.params = params;
-      break;
-    case "californiaix":
 
-      // make a temporary invisible mesh due to async issues
-      geometry = new THREE.SphereGeometry( size, 64, 64 );
+      // this acts both as a stand in and as a collision target for intersection tests
+      geometry = new THREE.BoxGeometry( size*10,size*10,1 );
       material = new THREE.MeshPhongMaterial( { color: c } );
-      params.mesh = new THREE.Mesh( geometry, material );
+      params.mesh = params.world = new THREE.Mesh( geometry, material );
 
       var loader = new THREE.OBJLoader();
       loader.load('obj/california.obj',
         function(mesh) {
           //mesh = mesh.children[0];
           mesh.scale.set(100,100,100);
-          mesh.rotation.set(0,90,0);
+         // mesh.rotation.set(0,90,0);
           //fixuvs(mesh.children[0].geometry);
           mesh.children[0].material = new THREE.MeshPhongMaterial( { ambient: 0x555555, color: 0xeeeeee, specular: 0xffffff, shininess: 50, shading: THREE.SmoothShading } );
 	  console.log(mesh);
           // mesh.geometry.dynamic = 1;
-	  params.mesh = visualization_mesh_finalize(mesh,params);
+	  var mesh = visualization_mesh_finalize(mesh,params);
+          params.mesh = mesh;
           mesh.params = params;
+          mesh.world = params.world;
         },
         function() {
           console.log("...loading...")
@@ -469,11 +465,11 @@ function visualization_mesh_finalize(mesh,params) {
   if(cameraattached) {
     camera.add(mesh);
   } else {
-    if(world && mesh != world) {
-      world.add(mesh);
-    } else {
+    //if(world && mesh != world) {
+    //  world.add(mesh);
+    //} else {
       scene.add(mesh);
-    }
+   // }
   }
 
   return mesh;
@@ -487,10 +483,6 @@ function visualization_mesh_finalize(mesh,params) {
 //   features.add(params); <- separate out with a call to an external handler because feature scope is outside of this
 
 function visualization_clone(params) {
-
-  // supply a hash of parameters to make an object from
- console.log("visualization clone");
-
   params.set("x",0);
   params.set("y",0);
   params.set("z",0);
@@ -499,9 +491,7 @@ function visualization_clone(params) {
   params.cloneable = 0;
   params.cameraattached = 0;
   visualization_create_mesh(params);
-  console.log(params.mesh);
   return params.mesh;
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
