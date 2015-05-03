@@ -1,7 +1,7 @@
 
-//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 // Visualization - 3d globals
-//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 var container;
 var containerWidth, containerHeight;
@@ -12,9 +12,9 @@ var worldextent = 100;
 
 var OBJECTS = [];
 
-//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 // go!
-//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 window.onload=function() {
   visualization_init();
@@ -23,14 +23,30 @@ window.onload=function() {
   palette_load();
 }
 
-//////////////////////////////////////////////////////
-// 3d setup
+/////////////////////////////////////////////////////////////////////////////////////////////
+// general initialization of the 3d scene and resizing
+// 
 // right handed coordinate system
 // y = up down where plus is up
 // z = in and out of screen where plus is towards you
 // x = left right where plus is right
 // camera starts at a large +x offset to help sphere wrap for textures
-//////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+function visualization_resize() {
+  containerWidth = window.innerWidth;
+  containerHeight = window.innerHeight;
+  camera.aspect = containerWidth / containerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize( containerWidth, containerHeight );
+}
+
+function visualization_animate() {
+  requestAnimationFrame( visualization_animate );
+  visualization_manipulator_update();
+  if(controls)controls.update();
+  renderer.render( scene, camera );
+}
 
 function visualization_init() {
 
@@ -46,12 +62,11 @@ function visualization_init() {
 
   // a light
 
+  // var light = new THREE.DirectionalLight( 0xffffff, 0.5 );
+  // light.position.set( 0, 1, 0 );
 
-var light = new THREE.DirectionalLight( 0xffffff, 0.5 );
-light.position.set( 0, 1, 0 );
-
-//  var light = new THREE.SpotLight( 0xcccccc, 0.3 );
-//  light.position.set( -1500, 1500, 300 );
+  var light = new THREE.SpotLight( 0xcccccc, 0.3 );
+  light.position.set( -1500, 1500, 300 );
 
   light.castShadow = true;
   light.shadowCameraNear = 200;
@@ -76,7 +91,7 @@ light.position.set( 0, 1, 0 );
   // camera
 
   camera = new THREE.PerspectiveCamera( 30, containerWidth / containerHeight , 1, 10000 );
-  camera.position.x = 1000;
+  camera.position.z = 1000;
   camera.lookAt(new THREE.Vector3(0,0,0));
   scene.add(camera);
   camera.add( light );
@@ -103,43 +118,20 @@ light.position.set( 0, 1, 0 );
 
   // manipulators
   visualization_manipulator_build();
-
-
-
-
-}
-
-function visualization_resize() {
-  containerWidth = window.innerWidth;
-  containerHeight = window.innerHeight;
-  camera.aspect = containerWidth / containerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize( containerWidth, containerHeight );
-}
-
-function visualization_animate() {
-  requestAnimationFrame( visualization_animate );
-  visualization_manipulator_update();
-  if(controls)controls.update();
-  renderer.render( scene, camera );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+// support for a concept where manipulators pop up when user is hovering over a geometry
+/////////////////////////////////////////////////////////////////////////////////////////////
 
-var manipulator;
-var manipulator_focus = 0;
-var manipulator_timer = 0;
-var manipulator_parent = 0;
-var manipulator_xyz = 0;
-
-function visualization_manipulator_attach(target) {
-  if(target != manipulator_parent) {
-    if(manipulator_parent) manipulator_parent.remove(manipulator);
-    manipulator_parent = target;
-    manipulator_parent.add(manipulator);
-  }
-  manipulator_timer = 99;
-}
+var manipulator;                // art for manipulator itself
+var manipulator_focus = 0;      // which manipulator sub-part is being touched?
+var manipulator_timer = 0;      // a timer
+var manipulator_parent = 0;     // what manipulator is attached to (the real user created object)
+var manipulator_xyz = 0;        // down position for scaling ratios
+var manipulator_scale = 0;      // original scale of user object
+var manipulator_dist = 0;       // original distance to object when dragging
+var manipulator_ypr = 0;        // original rotation of user object
 
 function visualization_manipulator_detach() {
   if(manipulator_parent) manipulator_parent.remove(manipulator);
@@ -148,6 +140,19 @@ function visualization_manipulator_detach() {
   manipulator_focus = 0;
   if(controls)controls.enabled = true;
   container.style.cursor = 'auto';
+}
+
+function visualization_manipulator_attach(target) {
+  if(!target) {
+    visualization_manipulator_detach();
+    return;
+  }
+  if(target != manipulator_parent) {
+    if(manipulator_parent) manipulator_parent.remove(manipulator);
+    manipulator_parent = target;
+    manipulator_parent.add(manipulator);
+  }
+  manipulator_timer = 99;
 }
 
 function visualization_manipulator_update() {
@@ -159,21 +164,29 @@ function visualization_manipulator_update() {
 
 function visualization_manipulator_build() {
 
-  // a center handle
+  // move
   var c = 0xff00ff;
-  var geometry = new THREE.SphereGeometry( 35, 64, 64 );
+  var geometry = new THREE.SphereGeometry( 10, 64, 64 );
   var material = new THREE.MeshLambertMaterial( { color: c } );
-  manipulator = new THREE.Mesh( geometry, material );
-  manipulator.position.set(0,0,0);
-  manipulator.moveme = 1;
+  var m1 = new THREE.Mesh( geometry, material );
+  m1.position.set(-20,0,0);
+  m1.moveme = 1;
 
-  // one of the scale axes
+  // scale
+  var c = 0x00ffff;
   var geometry = new THREE.SphereGeometry( 10, 64, 64 );
   var material = new THREE.MeshLambertMaterial( { color: c } );
   var m2 = new THREE.Mesh( geometry, material );
-  m2.position.set(30,0,0);
+  m2.position.set(20,20,0);
+  m2.scalerotateme = 1;
+
+  // hub
+  var c = 0xff00ff;
+  var geometry = new THREE.SphereGeometry( 0.01, 64, 64 );
+  var material = new THREE.MeshLambertMaterial( { color: c } );
+  manipulator = new THREE.Mesh( geometry, material );
+  manipulator.add(m1);
   manipulator.add(m2);
-  manipulator.scalerotateme = 1;
 
 }
 
@@ -183,6 +196,10 @@ function visualization_move_mesh(mesh,xyz) {
     mesh.lookAt(world.position);
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// connecting user inputs to manipulators that create and move objects
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function visualization_mousemove( event ) {
 
@@ -208,9 +225,13 @@ function visualization_mousemove( event ) {
   var target = intersects.length ? intersects[0].object : 0;
   if(!target) {
     // there is no world for the mouse to move over... do nothing
+    console.log("no world");
     return;
   }
   var xyz = intersects[0].point;
+
+  // give us more time
+  manipulator_timer = 99;
 
   // currently moving something?
   if(manipulator_focus.pickable || manipulator_focus.moveme) {
@@ -219,9 +240,17 @@ function visualization_mousemove( event ) {
 
   // currently scaling something? 
   if(manipulator_focus.scalerotateme) {
-    var scale = THREE.Vector3.subVectors(manipulator_xyz,xyz).length();
-    // - scale up the parent but not the children
-    console.log("scale is " + scale); 
+    if(!manipulator_xyz) manipulator_xyz = xyz;
+    // get new distance to target 
+    var dist = xyz.distanceTo(manipulator_parent.position);
+    // subtracting these gets scale direction
+    dist = dist - manipulator_dist;
+    // estimate a scaling ratio - could improve based on object size
+    dist = dist / 100.0;
+    // add the original scale back on 
+    dist += manipulator_scale;
+    // and this is our new scale to apply
+    manipulator_parent.scale.set(dist,dist,dist);
   }
 
 }
@@ -239,8 +268,8 @@ function visualization_mousedown( event ) {
     return;
   }
 
-  // if user clicked on nothing then also cancel helpers and get out
-  var intersects = raycaster.intersectsObject( manipulator_parent,true );
+  // find which part of the manipulator was selected (manipulators have different kinds of sub roles)
+  var intersects = raycaster.intersectObject( manipulator, true );
   manipulator_focus = intersects.length ? intersects[0].object : 0;
   if (!manipulator_focus) {
     visualization_manipulator_detach();
@@ -251,18 +280,19 @@ function visualization_mousedown( event ) {
   var intersects = raycaster.intersectObject(world);
   var target = intersects.length ? intersects[0].object : 0;
   if(!target) {
+    console.log("no world");
     visualization_manipulator_detach();
     return;
   }
-  manipulatior_xyz = intersects[0].point;
-  console.log("user clicked on a manipulator");
-  console.log(intersects[0]);
+  manipulator_xyz = intersects[0].point;
+  manipulator_scale = manipulator_parent.scale.x;
+  manipulator_dist = manipulator_xyz.distanceTo(manipulator_parent.position);
+  manipulator_timer = 99;
 
-  // cloning events happen immediately - do that now
+  // the ux has a concept of allowing cloning. if there is a cloneable parent then clone a new child now.
   if(manipulator_parent.cloneable) {
-    var dupe = manipulator_parent.params.event_handler();
+    var dupe = visualization_clone(manipulator_parent.params);
     visualization_manipulator_attach(dupe);
-    manipulator_focus = dupe;
   }
 
   // most other modes are resolved in mouse move
@@ -276,6 +306,8 @@ function visualization_mouseup( event ) {
   visualization_manipulator_detach();
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// utility
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function fixuvs( geometry ){
@@ -324,15 +356,32 @@ function visualization_create_mesh( params ) {
       geometry = new THREE.SphereGeometry( size, 64, 64 );
       material = new THREE.MeshPhongMaterial( { color: c } );
       mesh = new THREE.Mesh( geometry, material );
-      visualization_mesh_finalize(mesh,params);
+      params.mesh = visualization_mesh_finalize(mesh,params);
+      mesh.params = params
+
+      // make a temporary invisible mesh due to async issues;
       break;
     case "cube":
       geometry = new THREE.BoxGeometry( size,size,size );
       material = new THREE.MeshLambertMaterial( { color: c } );
       mesh = new THREE.Mesh( geometry, material );
-      visualization_mesh_finalize(mesh,params);
+      params.mesh = visualization_mesh_finalize(mesh,params);
+      mesh.params = params;
       break;
     case "california":
+      geometry = new THREE.BoxGeometry( size*10,size*10,1 );
+      material = new THREE.MeshLambertMaterial( { color: c } );
+      mesh = new THREE.Mesh( geometry, material );
+      params.mesh = visualization_mesh_finalize(mesh,params);
+      mesh.params = params;
+      break;
+    case "californiaix":
+
+      // make a temporary invisible mesh due to async issues
+      geometry = new THREE.SphereGeometry( size, 64, 64 );
+      material = new THREE.MeshPhongMaterial( { color: c } );
+      params.mesh = new THREE.Mesh( geometry, material );
+
       var loader = new THREE.OBJLoader();
       loader.load('obj/california.obj',
         function(mesh) {
@@ -343,7 +392,8 @@ function visualization_create_mesh( params ) {
           mesh.children[0].material = new THREE.MeshPhongMaterial( { ambient: 0x555555, color: 0xeeeeee, specular: 0xffffff, shininess: 50, shading: THREE.SmoothShading } );
 	  console.log(mesh);
           // mesh.geometry.dynamic = 1;
-	  visualization_mesh_finalize(mesh,params);
+	  params.mesh = visualization_mesh_finalize(mesh,params);
+          mesh.params = params;
         },
         function() {
           console.log("...loading...")
@@ -352,6 +402,9 @@ function visualization_create_mesh( params ) {
           console.log("loading err")
         }
       );
+      break;
+    default:
+      console.log("no shape style " + shape );
       break;
   }
 }
@@ -396,7 +449,6 @@ function visualization_mesh_finalize(mesh,params) {
   mesh.moveable = moveable;
   mesh.cloneable = cloneable;
   mesh.cameraattached = cameraattached;
-  mesh.params = params;
 
   // support both round worlds and flat worlds by keeping geometry aligned to world plane (may fancy up later)
   visualization_move_mesh(mesh,new THREE.Vector3(x,y,z));
@@ -425,6 +477,31 @@ function visualization_mesh_finalize(mesh,params) {
   }
 
   return mesh;
+}
+
+// xxx really should make a new hash - overwriting the previous
+// for now i'm taking the parent feature and treating it as a hash of parameters to clone the mesh
+// realistically it would be better to have a higher level feature constructor that works with the server
+// and the mesh can be produced as a call from that
+//   return feature_new( { name:"One", c:0xff0000, shape:"cube", size:10, x:0,y:0,z:0  } );
+//   features.add(params); <- separate out with a call to an external handler because feature scope is outside of this
+
+function visualization_clone(params) {
+
+  // supply a hash of parameters to make an object from
+ console.log("visualization clone");
+
+  params.set("x",0);
+  params.set("y",0);
+  params.set("z",0);
+  params.pickable = 1;
+  params.moveable = 1;
+  params.cloneable = 0;
+  params.cameraattached = 0;
+  visualization_create_mesh(params);
+  console.log(params.mesh);
+  return params.mesh;
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -459,7 +536,7 @@ Feature = Backbone.Model.extend({
     // created
     // modified
     // sponsor - presumably these things are created by some other entity such as a person?
-    // permissions - we might allow objects to be changed by others
+    // permissions - might allow objects to be changed by others
     // behavior script
     // relations to other objects in the current simulation scope
   },
@@ -475,29 +552,16 @@ var features = [
 ];
 
 function features_load() {
-  // xxx produce from user account for this simulation id
+
+  // xxx this list of features should actually be fetched from a server
+
   for(var i = 0; i < features.length; i++) {
-    var blob = features[i];
-    if(blob.mesh) continue;
-    blob.pickable = 1;
-    blob.moveable = 1;
-    blob.event_handler = feature_event_handler;
-    blob.mesh = visualization_create_mesh(blob);
+    var feature = features[i];
+    if(feature.mesh) continue;
+    feature.pickable = 1;
+    feature.moveable = 1;
+    visualization_create_mesh(feature);
   }
-}
-
-function feature_event_handler() {
-
-}
-
-function feature_new(blob) {
-  var blob = new Feature(blob);
-  blob.pickable = 1;
-  blob.moveable = 1;
-  blob.event_handler = feature_event_handler;
-  blob.mesh = visualization_create_mesh(blob);
-  //features.add(blob);
-  return blob.mesh;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -510,32 +574,14 @@ var palette = [
 ];
 
 function palette_load() {
-  // xxx the palette should be produced from the server
+  // xxx this list of features should be produced from a server
   for(var i = 0; i < palette.length; i++) {
-    var blob = palette[i];
-    blob.pickable = 1;
-    blob.cloneable = 1;
-    blob.cameraattached = 1;
-    blob.event_handler = palette_event_handler;
-    blob.mesh = visualization_create_mesh(blob);
+    var feature = palette[i];
+    feature.pickable = 1;
+    feature.cloneable = 1;
+    feature.cameraattached = 1;
+    visualization_create_mesh(feature);
   }
 }
 
-function palette_event_handler() {
-  // xxx would be cleaner to clone this prototypical feature and then just pass it to feature_new... 
-  //return feature_new( { name:"One", c:0xff0000, shape:"cube", size:10, x:0,y:0,z:0  } );
-  // but this will do for now:
-  var blob = this;
-  blob.set("x",0);
-  blob.set("y",0);
-  blob.set("z",0);
-  blob.pickable = 1;
-  blob.moveable = 1;
-  blob.cloneable = 0;
-  blob.cameraattached = 0;
-  blob.event_handler = feature_event_handler;
-  blob.mesh = visualization_create_mesh(blob);
-  //features.add(blob);
-  return blob.mesh;
-}
 
