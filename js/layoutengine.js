@@ -17,7 +17,7 @@ var TopicDetailView = Backbone.View.extend({
 
     // art
     var artwrapper = jQuery('<div/>', { class: 'topicdetail' } );
-    var art = jQuery('<img/>', { class: 'topicdetailimage', src: 'images/'+this.art, alt: this.label + " " + this.provenance, });
+    var art = jQuery('<img/>', { class: 'topicdetailimage', src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
     artwrapper.append(art);
     wrapper.append(artwrapper);
 
@@ -105,7 +105,7 @@ var TopicListView = Backbone.View.extend({
     // for a thumbnail overview show a packed set of images - also show any backdrop art for the whole frame
     else {
       wrapper.append("<h1>"+this.label.toUpperCase()+"</h1>");
-      wrapper.css("background-image", "url('images/"+this.art+"')");
+      wrapper.css("background-image", "url('/images/"+this.art+"')");
       _(this.collection.models).each(function(item){
         item.view = new TopicThumbView({model:item});
         wrapper.append(item.view.$el);

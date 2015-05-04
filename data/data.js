@@ -1,5 +1,5 @@
 
-var topic_thesis = {
+var topic_main = {
   label:"Simulate Our World",
   art:"petermathis.jpg",
   children:[
@@ -52,11 +52,10 @@ var model6 = {
   url:"/sim",
 };
 
-var topic_main = {
+var topic_models = {
   label:"Simulate.World",
   art:"petermathis.jpg",
   children:[
-    topic_thesis,
     model1,
     model2,
     model3,
