@@ -60,7 +60,7 @@ var TopicThumbView = Backbone.View.extend({
   },
   renderOnce: function() {
     var wrapper = jQuery('<a/>', { class: 'topicthumb', });
-    wrapper.css("background-image", "url('thumbs/"+this.art+"')");
+    wrapper.css("background-image", "url('/thumbs/"+this.art+"')");
     wrapper.append("<h2>"+this.label+"</h2>");
     wrapper.attr('href',this.url); // 2-3 -> only one of these is needed
     wrapper.on('click', this.zoom); // 3-3 -> only one of these is needed
