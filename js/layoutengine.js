@@ -139,24 +139,32 @@ function convert_to_backbone(parent) {
   return parent;
 }
 
-topic_main = convert_to_backbone(topic_main);
-
 /////////////////////////////////////////////////////////////////////////////////
-// routing support
-// keep alll pages in memory for now...
+// backbone routing
+// all pages are statically built on demand and cached for now
+// had trouble figuring out a better way to do page transitions... TODO improve?
 /////////////////////////////////////////////////////////////////////////////////
 
+var AppRouter = Backbone.Router.extend({
+  routes: {
+    "*actions": "OnceUponATime"
+  }
+});
+
+var topic_root = 0;
+var app_router = new AppRouter;
 var current_view;
 var allviews = {};
 
-function go_somewhere(path) {
+app_router.on('route:OnceUponATime', function (actions) {
+  var path = actions;
   if(current_view) {
     console.log("hiding view: " + current_view.label);
     current_view.hide();
   }
   var topic = topics_by_name[path];
   if(!topic) {
-    topic = topic_main;
+    topic = topic_root;
   }
   var label = topic.label = topic.get("label");
   var foundview = allviews[label];
@@ -169,29 +177,14 @@ function go_somewhere(path) {
   }
   allviews[label] = current_view = topic.view;
   console.log("showing view: " + label);
-};
-
-/////////////////////////////////////////////////////////////////////////////////
-// backbone routing
-/////////////////////////////////////////////////////////////////////////////////
-
-var AppRouter = Backbone.Router.extend({
-  routes: {
-    "*actions": "OnceUponATime"
-  }
-});
-
-var app_router = new AppRouter;
-
-app_router.on('route:OnceUponATime', function (actions) {
-  go_somewhere(actions);
 });
 
 /////////////////////////////////////////////////////////////////////////////////
-// start up everything
+// start up everything - call this from outside
 /////////////////////////////////////////////////////////////////////////////////
 
-(function($) {
+function topicengine_kickstart(topics) {
+  topic_root = convert_to_backbone(topics);
   Backbone.history.start(); // {pushState:true});
-})(jQuery);
+}
 

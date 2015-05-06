@@ -130,6 +130,7 @@ There are many more examples of this kind of work throughout the world. One of t
 var topic_examples = {
   label:"Examples",
   art:"louisiana.jpg",
+  kind:"deck",
   children:[
     topic_californiadrought,
     topic_balinese_water_temple,

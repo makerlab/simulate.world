@@ -1,6 +1,6 @@
 
 var topic_voices = {
-  label:"Voices & Media",
+  label:"Voices",
   art:"camping.jpg",
   children:[
 { label:"Dianne Ackerman", },

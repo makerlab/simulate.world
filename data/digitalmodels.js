@@ -3,52 +3,8 @@ var topic_digitalmodels_100 = {
   label:"",
   art:"glacier.jpg",
   notes:
-
-};
-
-var topic_digitalmodels_100 = {
-  label:"",
-  art:"glacier.jpg",
-  notes:
-
-};
-
-var topic_digitalmodels_100 = {
-  label:"",
-  art:"glacier.jpg",
-  notes:
-
-};
-
-var topic_digitalmodels_100 = {
-  label:"",
-  art:"glacier.jpg",
-  notes:
-
-};
-
-var topic_digitalmodels_100 = {
-  label:"",
-  art:"glacier.jpg",
-  notes:
-
-};
-
-var topic_digitalmodels_100 = {
-  label:"",
-  art:"glacier.jpg",
-  notes:
-
-};
-
-var topic_digitalmodels = {
-  label:"Building Digital Models",
-  art:"glacier.jpg",
-  notes:
 "\n\
-I'm interested in tools that help people make decisions better. Right now lots of corporations and governments have digital models of the predicted impacts of their decisions. Their planners are able to strategically look into the future to make the best decisions as the sum of all of their knowledge.\n\
-\n\
-But what we don't have is any kind of 'civic' digital model. As citizens we read summaries about what scientists or planners think but we never get to play with the models ourselves. We are not given an ability to participate in the decisions that affect us as stakeholders in the region. At best we get to vote based on the opinion supplied by experts.\n\
+The goal of this project is to provide new kinds of lenses for understanding our world and how our communities fit within them. How we can get beyond sustainability to having a positive impact on our world and thriving as a species. The world is too complex to understand and we will need digital models to assist us in reasoning about outcomes of our decisions.\n\
 \n\
 I want to provide people and communities with tools that allow them to simulate and predict the impact of new laws and policy on their regional social, economic and environmental landscape. The goal is to provide new tools for local decision making.\n\
 \n\
@@ -57,9 +13,30 @@ If you’ve played SimCity then you're familiar with the idea of digital simulat
 Weekly weather reports are also a good example. At first we had Farmer's Almanacs that had a historical record of weather patterns. Now we have supercomputers that can do near term predictions with some accuracy - and we've come to rely on these models to make better decisions.\n\
 \n\
 It is also a common theme touched upon by many such as Buckminister Fuller with 'The World Game' or Mark Pesce in 'The Playful World' as well as by many others.\n\
+"
+
+};
+
+var topic_digitalmodels_200 = {
+  label:"",
+  art:"glacier.jpg",
+  notes:
+"\n\
+I'm interested in tools that help people make decisions better. Right now lots of corporations and governments have digital models of the predicted impacts of their decisions. Their planners are able to strategically look into the future to make the best decisions as the sum of all of their knowledge.\n\
+\n\
+But what we don't have is any kind of 'civic' digital model. As citizens we read summaries about what scientists or planners think but we never get to play with the models ourselves. We are not given an ability to participate in the decisions that affect us as stakeholders in the region. At best we get to vote based on the opinion supplied by experts.\n\
+\n\
 \n\
 In this case I want to build models with real policy, real data, and simulate the watersheds and ecosystems forwards in time in order to let people anticipate local events (even coarsely) on a broad scale rather than just react to them.\n\
-\n\
+"
+
+};
+
+var topic_digitalmodels_300 = {
+  label:"",
+  art:"glacier.jpg",
+  notes:
+"\n\
 Simulating the effects of land-use laws, existing and proposed civic policy, natural phenomena and any other factors that contribute to regional outcomes is challenging. But it’s important to provide new tools for communities. The kinds of subjects that may be a part of the simulation include zoning laws for greywater collection, land use law, seasonal rainfall, the behavior of river systems, fishing, hydroelectric, farming, farming run-off, aquifer usage, dollar incomes, oil consumption and c02 production. Participants should be able to extend the model and add more subjects as well.\n\
 \n\
 These simulations should be open, public and free. Anybody should be able to contribute facts or relationships to the models. Anybody should be able to use or modify the models as they wish.\n\
@@ -67,7 +44,14 @@ These simulations should be open, public and free. Anybody should be able to con
 There will be many kinds of models, many kinds of simulations, written by different people. There’s no desire to write a single “solution”. But will be an effort to share data. At the end of the day these will be civic resources: kind of like a real world version of SimCity. The hope will be that a community can use this to see itself better, enfranchise participation by the regional stakeholders and teach people about the complexity of local ecosystems.\n\
 \n\
 It's worth noting that the goal isn't to actually 'solve problems' directly. If a community ratifies the cutting down of their own forests - so be it. The goal is to just empower people to make more complicated decisions together more effectively. At some level we have to let the regional stakeholders make their own decisions.  A computer simulation can test the outcome of proposed policies and can score the whole system by a number of factors such as economic benefit and environmental costs. More importantly unexpected side-effects can be discovered and examined. It becomes harder for parasites to subvert the system by hiding information. \n\
-\n\
+"
+};
+
+var topic_digitalmodels_400 = {
+  label:"",
+  art:"glacier.jpg",
+  notes:
+"\n\
 Why?\n\
 \n\
 We face serious social, environmental and economic challenges. Yet we don’t seem to have the tools for civic engagement. It seems extremely difficult to create effective change. It feels almost as if none of the participants are happy with the status quo but nobody is able to create change. The system has ground down on it’s own bureaucracy and it feels hopelessly outdated and baroque. Do you feel involved in your community? Do you feel you have a voice? Do you feel that you can make any change? Do you feel everything is running well?\n\
@@ -78,6 +62,14 @@ Imagine being able to have a simulation of an entire town that could computation
 \n\
 Imagine simply being able to zoom into your bioregion and see the hidden systems at work, the input and outputs that define your community. Imagine being able to explore the future projected behavior of the system based on known relationships. Imagine being able to play with parameters, try out new relationships, or change assumptions and test outcomes.\n\
 \n\
+"
+};
+
+var topic_digitalmodels_500 = {
+  label:"",
+  art:"glacier.jpg",
+  notes:
+"\n\
 Benefits\n\
 \n\
 Some of the kinds of benefits it could provide include:\n\
@@ -97,8 +89,14 @@ Some of the kinds of benefits it could provide include:\n\
 <b>Complexity reduction</b>. The world is actually too complicated to understand with our unaided senses. Side-effects often dominate. There is an information horizon which approaches us faster than our ability to process. Various stakeholders practice asymmetrical information warfare against each other to reap short term benefits at the expense of everybody else. The combination of human-machine hybrid reasoning helps us deal with larger problems. Machines provide brute force search power to explore large problem spaces and humans provide intuition to better find sweet spots in those large spaces.\n\
 \n\
 <b>Anticipatory Democracy and Durable Communities</b>. A simulations based approach can provide a fresh alternative to traditional governance. At the end of the day the goal is to build intelligent durable communities that thrive and that in fact can anticipate from and benefit from change rather than merely react or merely sustain their own existence. There’s a possibility that these kinds of communities could make their local ecosystems much richer, much more diverse and more resilient to the inevitable black swan events that occur in our world. Most importantly it can enfranchise the real stakeholders, blocking parasitical private interests, and shift wealth production to being invested into local ecosystems rather than being extracted.\n\
-\n\
-\n\
+"
+};
+
+var topic_digitalmodels_600 = {
+  label:"",
+  art:"glacier.jpg",
+  notes:
+"\n\
 Data\n\
 \n\
 Water Data. Water is such a critical component of an ecosystem model that it will show up in many of the examples as a core topic. It may need to be modeled especially accurately. The water cycle is complex. Aquifers for example may collapse once exhausted. And in some regions water shortages don’t start to take place until years into a drought due to the hydraulic nature of water reserves. Seasonal variations in water discharge into streams depend on snow melt the year before and a variety of other wind and weather conditions. Farms and urban centers use water at varying rates and in varying ways depending on assigned water rights. The migrations of fish up-river depend on many water factors; not just dams or fish ladders but also turbidity, temperature, salinity, log overhangs just to name a few.\n\
@@ -112,9 +110,15 @@ Historical data. Simulations need to be trained against historical data. In the 
 Data resolution. Farms have certain production rates of certain kinds of crops. They also have certain inputs in terms of water and other resources. Energy generation such as hydroelectric, solar, coal each have initial costs and ongoing costs as well as yields. Urban centers consume resources at a certain rate - below that rate chaos ensues or populations begin to migrate or have diminished productivity. There will be many kinds of models at varying resolutions, with many kinds of data. All farms in a given model may only produce one output; or in other cases (such as modeling California Drought) it may be broken down into specific kinds of crops (such as grains, avocado and almonds).\n\
 \n\
 Curated. People need to be able to take observed facts and relationships about a region and pour them into some kind of shared open database. This database needs to be similar to wikipedia in that it has to be open yet probably curated to avoid spam.\n\
-\n\
 Pre-populated. The models should allow stakeholders to populate a scenario with their own data. However, as well, seeding the system with provided data helps novices participate more easily.\n\
-\n\
+"
+};
+
+var topic_digitalmodels_700 = {
+  label:"",
+  art:"glacier.jpg",
+  notes:
+"\n\
 User Interface\n\
 \n\
 Simple. The user interfaces need to approach people at their own level. That means cartoonifying the data where needed if it is too complex for a certain audience. Different implementations of the simulations will probably address different audiences.\n\
@@ -127,3 +131,17 @@ Varying accuracy. Accuracy of the simulations and models doesn’t have to be pr
 "
 };
 
+var topic_digitalmodels = {
+  label:"Building Digital Models",
+  art:"glacier.jpg",
+  kind:"deck",
+  children: [
+    topic_digitalmodels_100,
+    topic_digitalmodels_200,
+    topic_digitalmodels_300,
+    topic_digitalmodels_400,
+    topic_digitalmodels_500,
+    topic_digitalmodels_600,
+    topic_digitalmodels_700,
+  ]
+}

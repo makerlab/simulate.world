@@ -183,6 +183,7 @@ What we’re not seeing is a pragmatic, unified, planet wide push based on rigor
 var topic_challenges = {
   label:"Challenges",
   art:"tanker.jpg",
+  kind:"deck",
   children:[
     topic_human_population,
     topic_global_warming,
