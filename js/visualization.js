@@ -75,7 +75,7 @@ function visualization_init() {
   camera.add( light );
 
   // controls
-  // xxx may be dependent on the view mode; a sphere and a plane are both being considered for the ''
+  // xxx may be dependent on the view mode; sometimes want to rotate around a sphere, other times fly over a plane
 
   controls = new THREE.TrackballControls( camera );
   controls.rotateSpeed = 1.0;
@@ -114,6 +114,9 @@ function visualization_animate() {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+// manipulator concept
+// when you hover over a pickable object extra tools appear that you can use to interact with that object
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 var manipulator;
 var manipulator_focus = 0;
@@ -148,15 +151,16 @@ function visualization_manipulator_update() {
 
 function visualization_manipulator_build() {
 
-  // a center handle
+  // a center handle - to move a thing
+  // xxx this should be bigger than the thing; or the thing itself should be used to move itself
   var c = 0xff00ff;
-  var geometry = new THREE.SphereGeometry( 35, 64, 64 );
+  var geometry = new THREE.SphereGeometry( 15, 64, 64 );
   var material = new THREE.MeshLambertMaterial( { color: c } );
   manipulator = new THREE.Mesh( geometry, material );
   manipulator.position.set(0,0,0);
   manipulator.moveme = 1;
 
-  // one of the scale axes
+  // one of the scale elements - to scale a thing
   var geometry = new THREE.SphereGeometry( 10, 64, 64 );
   var material = new THREE.MeshLambertMaterial( { color: c } );
   var m2 = new THREE.Mesh( geometry, material );
@@ -167,11 +171,14 @@ function visualization_manipulator_build() {
 }
 
 function visualization_move_mesh(mesh,xyz) {
+ console.log("moving");
   mesh.position.copy(xyz);
   if(world && world.round) {
     mesh.lookAt(world.position);
   }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
 
 function visualization_mousemove( event ) {
 
@@ -222,39 +229,43 @@ function visualization_mousedown( event ) {
   var mouse = new THREE.Vector2( event.clientX/window.innerWidth*2-1, -event.clientY/window.innerHeight*2+1 );
   raycaster.setFromCamera( mouse, camera );
 
-  // if no helpers active then cancel helpers and get out
+  // if our previous hover state has not setup any preconditions then do nothing
   if(!manipulator_parent) {
     visualization_manipulator_detach();
     return;
   }
 
   // if user clicked on nothing then also cancel helpers and get out
-  var intersects = raycaster.intersectsObject( manipulator_parent,true );
+  var intersects = raycaster.intersectObject( manipulator_parent,true );
   manipulator_focus = intersects.length ? intersects[0].object : 0;
   if (!manipulator_focus) {
     visualization_manipulator_detach();
     return;
   }
 
-  // user clicked on something and here is where in the world they clicked on it
+  // if user is clicking on outer space - somehow not overtop of the map or globe or the world then do nothing
   var intersects = raycaster.intersectObject(world);
   var target = intersects.length ? intersects[0].object : 0;
   if(!target) {
     visualization_manipulator_detach();
     return;
   }
+
+  // so there was an active hover, user has clicked on it, it is valid, there is a world beneath users click also.
+
   manipulatior_xyz = intersects[0].point;
   console.log("user clicked on a manipulator");
   console.log(intersects[0]);
 
   // cloning events happen immediately - do that now
   if(manipulator_parent.cloneable) {
+    console.log("cloning request");
     var dupe = manipulator_parent.params.event_handler();
     visualization_manipulator_attach(dupe);
     manipulator_focus = dupe;
   }
 
-  // most other modes are resolved in mouse move
+  // the remaining behaviors are finalized in mouse move handler elsewhere - so just get out now
   container.style.cursor = 'move';
   if(controls)controls.enabled = false;
 }

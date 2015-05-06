@@ -370,14 +370,14 @@ function visualization_create_mesh( params ) {
       mesh.params = params;
       break;
     case "california":
-
+      // XXX TODO such a hack
       // this acts both as a stand in and as a collision target for intersection tests
       geometry = new THREE.BoxGeometry( size*10,size*10,1 );
       material = new THREE.MeshPhongMaterial( { color: c } );
       params.mesh = params.world = new THREE.Mesh( geometry, material );
 
       var loader = new THREE.OBJLoader();
-      loader.load('obj/california.obj',
+      loader.load('obj/californiasmall.obj',
         function(mesh) {
           //mesh = mesh.children[0];
           mesh.scale.set(100,100,100);
