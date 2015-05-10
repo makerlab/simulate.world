@@ -4,7 +4,7 @@ var topic_mediamessages_100 = {
   art:"ENDCIV-8.jpg",
   notes:
 "\
-We hear a number of messages from the media. The first is that the Earth is a beautiful and special place. The second is that we, somehow, are responsible for destroying her.ZZ\n\
+We hear a number of messages from the media. The first is that the Earth is a beautiful and special place. The second is that we, somehow, are responsible for destroying her.\n\
 \n\
 Think about the news stories or nature shows you read or watch every day. Are there any articles that talk about environmental crisis? What kinds of issues and topics do they focus on? What kinds of solutions do they focus on? How confident are you that we're going to tackle and solve the kinds of problems we are facing?\n\
 "
