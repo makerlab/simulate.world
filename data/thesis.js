@@ -6,7 +6,7 @@ var topic_main = {
     topic_ourworld,
     topic_mediamessages,
     topic_superpowers,
-    topic_challenges,
+    topic_lookingcloser,
     topic_disorganized,
     topic_anthropocene,
     topic_digitalmodels,

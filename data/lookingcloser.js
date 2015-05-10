@@ -1,18 +1,18 @@
 
-var topic_human_nuanced = {
-  label:"",
+var topic_lookingcloser_human_nuanced = {
+  label:"Nuanced",
   art:"tanker.jpg",
   provenance:"Tim Sklyarov http://timsklyarov.com/new-york-city-aerial/",
   notes:
 "\
-The reality of our impacts are more nuanced. In fact more nuanced than can be described cogently using text. It's true that we are a predominant force on this planet. And it is true that our impacts are significant enough that they are becoming a part of the geological record. However we're not entirely a negative influence.\n\
+The reality of our impacts are more nuanced than can be described cogently using text. It's true that we are a predominant force on this planet. And it is true that our impacts are significant enough that they are becoming a part of the geological record. However we're not entirely a negative influence.\n\
 \n\
 Reality as they say is 'complicated'. We can begin to approach an understanding by discussing the biggest topics, but small systems also have big impacts. Ultimately we'll need to bring new kinds of tools to bear on seeing our way through this issue clearly.\n\
 "
 };
 
-var topic_human_population = {
-  label:"Human Population",
+var topic_lookingcloser_human_population = {
+  label:"Population",
   art:"new-york-city-aerial-8.jpg",
   provenance:"Tim Sklyarov http://timsklyarov.com/new-york-city-aerial/",
   notes:
@@ -22,13 +22,12 @@ At the core of human impacts on earth is human population growth. As our populat
 In 1798 Robert Malthus wrote 'An Essay on the Principle of Population'. In the Malthusian model of human resource consumption human populations grow and eventually consume all resources and then crash. The same principle can be seen in a petri dish with bacteria or in many other settings and it is a common natural phenomena. The Malthusian model however doesn't account for human ingenuity. With green revolution technology we've been able to shift the curve.\n\
 \n\
 What would it take to build a more accurate model? What are the key facts and issues that would better predict realistic outcomes? What kind of predictive power would such a model have? What would be the trust that people would have in such a model?\n\
-\
 "
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-var topic_global_warming = {
+var topic_lookingcloser_global_warming = {
   label:"Global Warming",
   art:"what-global-warming_6372_600x450.jpg",
   provenance: "http://images.nationalgeographic.com/wpf/media-live/photos/000/063/cache/what-global-warming_6372_600x450.jpg",
@@ -53,8 +52,8 @@ Our planets oceans are carrying the brunt of this and to some degree are 'buffer
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-var topic_consumption = {
-  label:"Consumption",
+var topic_lookingcloser_consumption = {
+  label:"Over consumption",
   art:"overconsumption-of-resources-2.jpg",
   provenance:"http://www.gogreencebu.com/wp-content/uploads/2013/04/overconsumption-of-resources-2.jpg",
   notes:
@@ -88,38 +87,107 @@ https://books.google.com/books?id=szK9uNKvTkQC&pg=PA42&lpg=PA42&dq=nature+jenga&
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-var topic_rebounding = {
+var topic_lookingcloser_rebounding = {
   label:"Rebounding",
   art:"Shearwater-chick-2.jpg",
   notes:
-  "\
-Human migration to cities is actually having a positive impact on many parts of the world. We are growing in population but in fact reducing our environmental footprint. As well green revolution efficiencies are reducing the consumption of arable land and animals.\n\
-http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities/ \n\
-  "
+"\
+It’s worth noting that not all influences are negative. Jesse Ausubel makes the case for a number of rebound effects happening due to changes in human behavior. For example he points out that there is more green cover now than there has been historically and that humans have dramatically improved crop yields over increasingly smaller regions of soil. It’s worth watching:\n\
+\n\
+http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities/\n\
+"
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-var topic_other = {
+var topic_lookingcloser_links = {
   label:"",
   art:"",
-  // unsure what to discuss here but i want to look at some of the counter examples
-  // polyface farms? or something bigger?
-  
+  notes:
+"\
+Other articles and citations about the global scale impacts of human behavior\n\
+\n\  http://spectrum.ieee.org/energy/renewables/what-it-would-really-take-to-reverse-climate-change\n\
+\n\ http://www.nytimes.com/2014/12/24/science/earth/restored-forests-are-making-inroads-against-climate-change-.html\n\
+\n\
+One Straw Revolution https://www.youtube.com/watch?v=XSKSxLHMv9k\n\
+\n\
+http://www.fastcoexist.com/3043284/3-ways-humans-create-poverty\n\
+\n\  http://www.rollingstone.com/politics/news/the-fate-of-trees-how-climate-change-may-alter-forests-worldwide-20150312\n\
+\n\ http://www.bloomberg.com/news/articles/2015-03-11/the-year-humans-started-to-ruin-the-world\n\
+\n\  http://www.biologicaldiversity.org/programs/biodiversity/elements_of_biodiversity/extinction_crisis/\n\
+\n\
+http://www.bbc.co.uk/nature/extinction_events\n\
+\n\
+http://archive.larouchepac.com/node/21941\n\
+\n\
+http://en.wikipedia.org/wiki/Great_Filter\n\
+\n\  http://www.mediafactory.org.au/matthew-jowett/2014/08/30/fodi-we-are-the-asteroid/\n\
+\n\  http://www.igbp.net/globalchange/anthropocene.4.1b8ae20512db692f2a680009238.html\n\
+"
+};
+
+var topic_lookingcloser_runaway = {
+  label:"",
+  art:"",
+  notes:
+"\
+Runaway effects\n\
+\n\
+Beyond even this some of these issues have a potential to create runaway effects that are beyond our ability to understand, plan for, or appreciate.\n\
+\n\
+It’s unclear the degree to which these effects will take place and the degree to which we will be able to mitigate them at various possible intervention points. The Methane Hydrates issue is one example - some people believe this could lead to a planetary extinction event - and there is evidence for this having happened before in the fossil record.\n\
+"
+};
+
+var topic_lookingcloser_outcomes = {
+  label:"",
+  art:"",
+  notes:
+"\
+Predicted global outcomes\n\
+\n\
+The “probable” outcome of a digital model based on what we’re hearing in the media would appear to be something like this:\n\
+\n\
+Fear, Uncertainty and Doubt continues to be manufactured by corporate and private interests over any outcomes that clash with the status quo or “business as usual”. Motives continue to be greenwashed and everything continues as is.\n\
+\n\
+Collective decision making by real stakeholders continues to be ineffective.\n\
+\n\
+An increasingly rapid degradation of quality of life occurs.\n\
+\n\
+In the next 20~30 years we begin to hit “turning point” decisions. We choose to abandon entire cities, we choose to let people die, we begin “circling the wagons”.\n\
+\n\
+Food security issues lead to a loss of confidence in governments. Incendiary civil war under social and political or religious pretexts expands. Intentional eco terrorism is used to starve opponents of resources. Full scale war even nuclear war occurs.\n\
+\n\
+Easily obtained natural resources are exhausted.\n\
+\n\
+Mega-extinction events begin to occur starting with sea-life.\n\
+\n\
+Humans are forced to retreat to the poles.\n\
+\n\
+A few wealthy humans are able to life-boat; leaving the planet.\n\
+\n\
+A massive reduction in quality of life for the remaining.\n\
+\n\
+Insufficient intellectual capital and natural resources left to try “grand solutions”.\n\
+\n\
+Basically there is no happy ending.\n\
+"
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-var topic_challenges = {
+var topic_lookingcloser = {
   label:"Looking closer",
   art:"tanker.jpg",
   kind:"deck",
   children:[
-    topic_human_nuanced,
-    topic_human_population,
-    topic_global_warming,
-    topic_consumption,
-    topic_rebounding,
-    topic_other,
+    topic_lookingcloser_human_nuanced,
+    topic_lookingcloser_human_population,
+    topic_lookingcloser_global_warming,
+    topic_lookingcloser_consumption,
+    topic_lookingcloser_rebounding,
+    topic_lookingcloser_links,
+    topic_lookingcloser_runaway,
+    topic_lookingcloser_outcomes,
   ],
 };

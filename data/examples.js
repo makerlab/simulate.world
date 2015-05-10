@@ -1,23 +1,5 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-// examples
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-var topic_positive_impacts = {
-  label:"Positive Impacts",
-  art:"stelprdb5284727.jpg",
-  provenance:"http://www.fs.usda.gov/Internet/FSE_MEDIA/stelprdb5284727.jpg",
-  notes:
-"\n\
-It’s worth noting that not all influences are negative. Jesse Ausubel makes the case for a number of rebound effects happening due to changes in human behavior. For example he points out that there is more green cover now than there has been historically and that humans have dramatically improved crop yields over increasingly smaller regions of soil. It’s worth watching:\n\
-\n\
-http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities/\n\
-"
-};
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
 
 var topic_california_smelt = {
   label:"California Smelt",
@@ -132,7 +114,6 @@ var topic_examples = {
   art:"louisiana.jpg",
   kind:"deck",
   children:[
-    topic_californiadrought,
     topic_balinese_water_temple,
     topic_wolves_in_yellowstone,
     topic_wells_in_rajasthans_alwar_district,
@@ -141,7 +122,7 @@ var topic_examples = {
     topic_grand_coulee,
     topic_lake_merrit,
     topic_nestle,
-    topic_positive_impacts,
+    topic_californiadrought,
   ],
 };
 
