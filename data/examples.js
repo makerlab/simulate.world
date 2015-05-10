@@ -70,6 +70,14 @@ http://www.jstor.org/discover/10.2307/681181?sid=21106116561983&uid=2&uid=373925
 "
 };
 
+var topic_balinese_fishbank = {
+  label:"Balinese Fish Bank",
+  art:"",
+  provenance:"",
+  notes:
+"https://www.youtube.com/watch?v=I2wOxzD4aJE&noredirect=1",
+};
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 var topic_wolves_in_yellowstone = {
@@ -115,14 +123,15 @@ var topic_examples = {
   kind:"deck",
   children:[
     topic_balinese_water_temple,
+    topic_balinese_fishbank,
     topic_wolves_in_yellowstone,
     topic_wells_in_rajasthans_alwar_district,
-    topic_california_smelt,
     topic_bp_deepwater_disaster,
     topic_grand_coulee,
     topic_lake_merrit,
     topic_nestle,
     topic_californiadrought,
+    topic_california_smelt,
   ],
 };
 
