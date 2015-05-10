@@ -7,14 +7,12 @@ var topic_ourworld_100 = {
     { kind:"text", notes:"<h2>And consider our home</h2>", style:"bottom:0px;right:0px" }
   ],
   notes:
-"\n\
-Let’s take a deep breath and consider our home.\n\
+"\
+Let’s take a deep breath and consider our world.\n\
 \n\
-The first photographs of our whole planet were taken in 1967. In a sense that marks the beginning of an awareness that we are a single ecosystem.\n\
+In 1967 the first photographs of our planet were transmitted back to Earth. It wasn't long after that James Lovelock who worked at JPL coined the phrase <a href='http://en.wikipedia.org/wiki/Gaia_hypothesis'><font color=blue>'Gaia Theory'</font></a> to describe his perception of our planet as a single self-regulating organism. He suggested that all of life on Earth worked in concert to maximize biodiversity and life as we know it.\n\
 \n\
-As far as we know this Earth is the only place in the universe that has life. Beautiful for its own reasons, for its diversity and complexity, it may also be unique.\n\
-\n\
-This world shapes us. We are warmed by the same sun, breath the same air. Simple acts such as eating food or drinking water are connected to an extraordinary chain of phenomena. Even our awareness is sensate, our reasoning and values are shaped by this world. And just as the world shaped us, we are now beginning to shape it.\n\
+As far as we know the thin surface of this Earth is the only place in the universe that has life. Beautiful for its own reasons, for its diversity and complexity, it may also be unique.\n\
 "
 };
 
@@ -25,34 +23,37 @@ var topic_ourworld_200 = {
     { kind:"text", notes:"<h2>Our experiences are each unique</h2>", style:"bottom:0px;left:0px" }
   ],
   notes:
-"\n\
-Each of our experiences are unique. We each touch a different part of the world and together those experiences may contribute to a larger picture. Some of us grew up near mountains, others in cities, some on the prairies, or in small towns or along coasts with beaches. As a result we each value different things.\n\
+"\
+We are warmed by the same sun, breath the same air. Simple acts such as eating food or drinking water are connected to an extraordinary chain of phenomena. Even our awareness is sensate, our reasoning and values are shaped by this world.\n\
+\n\
+Yet each of our experiences are unique. We each touch a different part of the world and together those experiences may contribute to a larger picture. Some of us grew up near mountains, others in cities, some on the prairies, or in small towns or along coasts with beaches. As a result we each value different things.\n\
 "
 };
 
 var topic_ourworld_300 = {
-  label:"Your experiences",
-  art:"camping.jpg",
-  children: [
-    { kind:"text", notes:"<h2>What are your most vivid memories?</h2>", style:"bottom:0px;left:0px" }
-  ],
-  notes:
-"\n\
-How many of your own most vivid memories and experiences are of times that you spent exploring, hiking, climbing, running outside? How many of these experiences do you remember as opposed to times at the office or working? Are your dreams most often of spending more time in nature or more time working on work?\n\
-"
-};
-
-var topic_ourworld_400 = {
   label:"My experiences",
   art:"anselm_hook_lake_louise_2006.jpg",
   children: [
     { kind:"text", notes:"<h2>For me it was growing up in Alberta</h2><h2>near the Rockies</h2>", style:"bottom:0px;left:0px" }
   ],
   notes:
-"\n\
-I myself grew up near the Rocky Mountains in Alberta and was lucky enough to spend most of my time climbing and hiking. My appreciation for the world is shaped by these memories.\n\
+"\
+The Rocky Mountains in Alberta provided the backdrop for my personal experiences. My appreciation for the world is shaped by these memories. This is a big part of what motives my interest in these topics.\n\
 "
 };
+
+var topic_ourworld_400 = {
+  label:"Your experiences",
+  art:"camping.jpg",
+  children: [
+    { kind:"text", notes:"<h2>What are your most vivid memories?</h2>", style:"bottom:0px;left:0px" }
+  ],
+  notes:
+"\
+What are your most powerful memories? How many of your own most vivid memories and experiences are of times that you spent exploring, hiking, climbing, running outside? How many of these experiences do you remember as opposed to times at the office or working? Which would you like to protect most?\n\
+"
+};
+
 
 var topic_ourworld_500 = {
   label:"Focus",
@@ -61,8 +62,10 @@ var topic_ourworld_500 = {
     { kind:"text", notes:"<h2>Do you feel our world is worth protecting?</h2>", style:"bottom:0px;left:0px" }
   ],
   notes:
-"\n\
-It feels important to keep what we care about in mind. Do you feel it is worth protecting? Is our world something you cherish and love? Or is it somehow damaged beyond repair? Do you think we have any power to save it? Or that we need to?\n\
+"\
+Do you feel our world is worth protecting? Is our world something you cherish and love? Or is it somehow damaged beyond repair? Do you think we have any power to save it? Or that we need to?\n\
+\n\
+I feel it is important to stay focused on what we actually care about and what outcomes we wish for our world. The media and other voices have many dissonant opinions. In navigating these issues it helps to have defined our core values.\n\
 "
 };
 

@@ -15,6 +15,7 @@ var TopicDetailView = Backbone.View.extend({
   renderOnce: function() {
     var wrapper = jQuery('<div/>');
 
+if(0) {
     // art
     var artwrapper = jQuery('<div/>', { class: 'topicdetail' } );
     var art = jQuery('<img/>', { class: 'topicdetailimage', src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
@@ -32,10 +33,16 @@ var TopicDetailView = Backbone.View.extend({
       });
       artwrapper.append(text);
     });
+}
+else {
+    var art = jQuery('<img/>', { style:"width:256px;height:256px;float:left;margin:10px", src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
+}
+    wrapper.append(art);
 
     // presenters notes
     var markup = jQuery('<span/>', { class: 'topicdetailnotes',html:rho.toHtml(this.markup) });
     wrapper.append(markup);
+    wrapper.append("<div style='clear:both'></div>");
     art.on('click', function() { $('.topicdetailnotes').toggle(); });
     markup.on('click', function() { $('.topicdetailnotes').toggle(); });
 
