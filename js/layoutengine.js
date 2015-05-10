@@ -15,7 +15,6 @@ var TopicDetailView = Backbone.View.extend({
   renderOnce: function() {
     var wrapper = jQuery('<div/>');
 
-if(0) {
     // art
     var artwrapper = jQuery('<div/>', { class: 'topicdetail' } );
     var art = jQuery('<img/>', { class: 'topicdetailimage', src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
@@ -33,18 +32,21 @@ if(0) {
       });
       artwrapper.append(text);
     });
-}
-else {
-    var art = jQuery('<img/>', { style:"width:256px;height:256px;float:left;margin:10px", src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
-}
-    wrapper.append(art);
+
+    var artsmall = jQuery('<img/>', { class:'topicartsmall', style:"display:none;width:256px;height:256px;float:left;margin:10px", src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
+    wrapper.append(artsmall);
 
     // presenters notes
     var markup = jQuery('<span/>', { class: 'topicdetailnotes',html:rho.toHtml(this.markup) });
     wrapper.append(markup);
     wrapper.append("<div style='clear:both'></div>");
-    art.on('click', function() { $('.topicdetailnotes').toggle(); });
-    markup.on('click', function() { $('.topicdetailnotes').toggle(); });
+    art.on('click', function() {
+      $('.topicdetailnotes').toggle();
+    });
+    markup.on('click', function() {
+      $('.topicdetailimage').toggle();
+      $('.topicartsmall').toggle();
+    });
 
     // set wrapper
     this.setElement(wrapper); 
