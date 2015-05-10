@@ -1,4 +1,4 @@
-var topic_anthropocene = {
+var topic_anthropocene_100 = {
   label:"Anthropocene",
   art:"glacier.jpg",
   notes:
@@ -28,3 +28,13 @@ Permian–Triassic extinction event. Earth's largest extinction killed 57% of al
 Triassic–Jurassic extinction event. About 23% of all families, 48% of all genera (20% of marine families and 55% of marine genera) and 70% to 75% of all species went extinct. Most non-dinosaurian archosaurs, most therapsids, and most of the large amphibians were eliminated, leaving dinosaurs with little terrestrial competition.\n\
 Cretaceous–Paleogene extinction event. About 17% of all families, 50% of all genera and 75% of all species became extinct. In the seas it reduced the percentage of sessile animals to about 33%. Mammals and birds emerged as dominant land vertebrates in the age of new life."
 };
+
+var topic_anthropocene = {
+  label:"Anthropocene",
+  art:"glacier.jpg",
+  kind:"deck",
+  children: [
+    topic_anthropocene_100
+  ]
+};
+
