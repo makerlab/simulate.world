@@ -1,6 +1,43 @@
 
+/////////////////////////////////////////////////////////////////////////////////
+// topic management
+/////////////////////////////////////////////////////////////////////////////////
+
 var Topic = Backbone.Model.extend({ });
 var TopicList = Backbone.Collection.extend({ model: Topic });
+
+var topics_by_name = {};
+var topic_root = 0;
+
+// hack - make backbone objects because backbone prefers them
+// hack - we don't actually load/save to a server or have any dynamic stuff right now
+function topics_convert_to_backbone(parent) {
+  var collection = new TopicList();
+  for(var i=0 ; parent.children && i<parent.children.length;i++) {
+    var thing = topics_convert_to_backbone(parent.children[i]);
+    collection.add(thing);
+  }
+  parent.children = 0;
+  parent = new Topic(parent);
+  parent.children = collection;
+  topics_by_name[parent.get("label")] = parent;
+  return parent;
+}
+
+// return a set of topics matching a criteria
+function topics_search(tags,maxcount) {
+  // xxx tbd
+  return topic_root;
+}
+
+function topicengine_kickstart(topics) {
+  topic_root = topics_convert_to_backbone(topics);
+  return topic_root;
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+// views
+/////////////////////////////////////////////////////////////////////////////////
 
 var TopicDetailView = Backbone.View.extend({
   initialize: function(opts) {
@@ -84,6 +121,8 @@ var TopicThumbView = Backbone.View.extend({
 
 var TopicListView = Backbone.View.extend({
   initialize: function(options){
+    if(options.elementid) this.renderto = $(options.elementid); else this.renderto = $('body');
+    this.style = options.style;
     this.art = this.model.get("art");
     this.provenance = this.model.get("provenance");
     this.label = this.model.get("label");
@@ -102,16 +141,34 @@ var TopicListView = Backbone.View.extend({
   renderOnce: function(){
     document.title = this.label.toUpperCase();
 
-    // for a deck view in detail show each card full sized
     var wrapper = jQuery('<div/>', { class: 'page' } );
-    if(this.kind == "deck") {
+
+    // layout rules express a tension between a current view mode and an implicit view mode of the subject
+    // decks like to show their contents as fully detailed presentations
+    // thumbnails like to show their contents as collections of thumbs
+    // overviews don't care and want to show contents as suits an external demand
+
+    // for a deck view in detail show each card full sized
+
+    if(this.style == "brief") {
+      _(this.collection.models).each(function(item){
+        item.view = new TopicThumbView({model:item});
+        wrapper.append(item.view.$el);
+      },this);
+    }
+
+    // "decks"
+
+    else if(this.kind == "deck") {
       _(this.collection.models).each(function(item){
         item.view = new TopicDetailView({model:item});
         wrapper.append(item.view.$el);
       },this);
     }
 
+    // "thumbnails"
     // for a thumbnail overview show a packed set of images - also show any backdrop art for the whole frame
+
     else {
       wrapper.append("<h1>"+this.label.toUpperCase()+"</h1>");
       wrapper.css("background-image", "url('/images/"+this.art+"')");
@@ -124,28 +181,13 @@ var TopicListView = Backbone.View.extend({
 
     // manually attach to world ourselves - this whole routine is currently called once only
     this.$el.append(wrapper);
-    $('body').append(this.$el);
+    this.renderto.append(this.$el);
   },
 });
 
-/////////////////////////////////////////////////////////////////////////////////
-// hack - make backbone objects because backbone prefers them
-// we don't actually load/save to a server or have any dynamic stuff right now
-/////////////////////////////////////////////////////////////////////////////////
-
-var topics_by_name = {};
-
-function convert_to_backbone(parent) {
-  var collection = new TopicList();
-  for(var i=0 ; parent.children && i<parent.children.length;i++) {
-    var thing = convert_to_backbone(parent.children[i]);
-    collection.add(thing);
-  }
-  parent.children = 0;
-  parent = new Topic(parent);
-  parent.children = collection;
-  topics_by_name[parent.get("label")] = parent;
-  return parent;
+function topic_decorate_div(elementid,topics) {
+  if(!topics)topics=topic_root;
+  new TopicListView({elementid:elementid,model:topics,style:"brief"});
 }
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -160,7 +202,6 @@ var AppRouter = Backbone.Router.extend({
   }
 });
 
-var topic_root = 0;
 var app_router = new AppRouter;
 var current_view;
 var allviews = {};
@@ -182,7 +223,7 @@ app_router.on('route:OnceUponATime', function (actions) {
     topic.view.$el.attr("id",label);
     console.log("produced a new view from scratch and attached to body for: " + label);
   } else {
-    foundview.show();
+    foundview.show(); // uses a hide show mechanic to avoid trashing memory
   }
   allviews[label] = current_view = topic.view;
   console.log("showing view: " + label);
@@ -192,8 +233,8 @@ app_router.on('route:OnceUponATime', function (actions) {
 // start up everything - call this from outside
 /////////////////////////////////////////////////////////////////////////////////
 
-function topicengine_kickstart(topics) {
-  topic_root = convert_to_backbone(topics);
+function app_router_start() {
+  if(!topic_root)assert("call topicengine_kickstart also");
   Backbone.history.start(); // {pushState:true});
 }
 

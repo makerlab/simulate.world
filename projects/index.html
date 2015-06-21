@@ -6,19 +6,25 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="/css/layoutengine.css"> 
+<body style="background: url('/images/petermathis.jpg') no-repeat center center fixed;background-size:cover;" >
+</head>
+<body/>
+<h1>Projects</h1>
+<div id="projects"></div>
+</html>
+
 <script src="/js/jquery-1.11.2.min.js"></script>
 <script src="/js/underscore-min-1.8.3.js"></script>
 <script src="/js/backbone-min.js"></script>
 <script src="/js/rho.js"></script>
-</head>
-<body/>
-</html>
+<script src="/js/layoutengine.js"></script>
 
 <script src="/data/projects.js"></script>
-<script src="/js/layoutengine.js"></script>
 
 <script>
 (function($) {
   topicengine_kickstart(topic_projects);
+  topic_decorate_div("#projects");
 })(jQuery);
 </script>
+

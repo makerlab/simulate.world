@@ -1,16 +1,14 @@
 
-var topic_disorganized_100 = {
-  label:"disorganized",
-  art:"",
+var topic_organization_100 = {
+  label:"organization",
+  art:"worldflag",
   notes:
 "\
-Current Responses on the global stage\n\
-\n\
-There’s no visible consistent or unified international response to the burgeoning crisis. In many cases we’re spending billions of dollars to pay for environmental damages caused by millions of dollars reaped in profit by private corporations.\n\
+Are there any current responses on the global stage? We've seen an agreement to eliminate co2 emissions by the year 2100 - which has not been ratified. Generally speaking there’s no visible consistent or unified international response to the burgeoning crisis. In many cases we’re spending billions of dollars to pay for environmental damages caused by millions of dollars reaped in profit by private corporations.\n\
 "
 };
 
-var topic_disorganized_200 = {
+var topic_organization_200 = {
   label:"stakeholders",
   art:"",
   notes:
@@ -21,7 +19,7 @@ Not all stakeholders need to necessarily participate in all decisions but region
 "
 };
 
-var topic_disorganized_300 = {
+var topic_organization_300 = {
   label:"governance",
   art:"",
   notes:
@@ -33,7 +31,7 @@ In fact the decision making structures we do have seem to be flat out awful. The
 "
 };
 
-var topic_disorganized_400 = {
+var topic_organization_400 = {
   label:"things that won't work",
   art:"",
   notes:
@@ -64,24 +62,41 @@ What we’re not seeing is a pragmatic, unified, planet wide push based on rigor
 "
 };
 
-var topic_disorganized_500 = {
-  label:"hacking the system",
+var topic_organization_500 = {
+  label:"",
   art:"",
   notes:
 "\
-Hacking the system\n\
+What are reasonable predicted global outcomes for humanity over the long term? Basically - What is actually going to happen? Almost certainly this is the most realistic outcome regardless of what we try to do:\n\
 \n\
-It appears that while we have planetary impacts we don’t yet have planetary level organization. We have simply outgrown our decision making structures.\n\
+1. Fear, Uncertainty and Doubt continues to be manufactured by corporate and private interests over any outcomes that clash with the status quo or “business as usual”. Motives continue to be greenwashed and everything continues as is.\n\
 \n\
-How do we learn to organize better? I personally feel the answer has to involve local decision making - that we have to find a way to give stewardship back to local stakeholders who are disempowered, mis-informed and checked out.\n\
+2. Collective decision making by real stakeholders continues to be ineffective.\n\
 \n\
-It feels like that solutions to the crisis will not come from the same patterns that created the crisis. We’re going to have to hack the system at some level. It’s going to mean structural change rather than procedural change. We’re going to have to build new systems right next to the old systems and start switching over.\n\
+3. An increasingly rapid degradation of quality of life occurs.\n\
 \n\
-Concepts such as representative democracy or capitalism just don’t seem to map to ideas such as local stewardship, longer term growth and investment in nature. We have to find a way to give all stakeholders (including nature) a voice. We have to find different models of decision making that are bottom up, collaborative, that encourage understanding and participation rather than discourage it.\n\
+4. In the next 20~30 years we begin to hit “turning point” decisions. We choose to abandon entire cities, we choose to let people die, we begin “circling the wagons”.\n\
+\n\
+5. Food security issues lead to a loss of confidence in governments. Incendiary civil war under social and political or religious pretexts expands. Intentional eco terrorism is used to starve opponents of resources. Full scale war even nuclear war occurs.\n\
+\n\
+6. Easily obtained natural resources are exhausted.\n\
+\n\
+7. Mega-extinction events begin to occur starting with sea-life.\n\
+\n\
+8. Humans are forced to retreat to the poles.\n\
+\n\
+9. A few wealthy humans are able to life-boat; leaving the planet.\n\
+\n\
+10. A massive reduction in quality of life for the remaining.\n\
+\n\
+11. Insufficient intellectual capital and natural resources left to try “grand solutions”.\n\
+\n\
+Setting aside grandiose and untried solutions, and looking at current trajectories, this feels like the most pragmatic outcome of the system as a whole.\n\
 "
 };
 
-var topic_disorganized_600 = {
+
+var topic_organization_600 = {
   label:"",
   art:"",
   notes:
@@ -96,7 +111,7 @@ At some level the Earth will always be fine; it is really just the human race th
 "
 };
 
-var topic_disorganized_700 = {
+var topic_organization_700 = {
   label:"smart monkeys",
   art:"",
   notes:
@@ -112,21 +127,42 @@ This is a crisis of organization. Spurred by population growth, by our powers ov
 Yet for better or worse we are the only thing that can save this world and we must find ways to organize to affect our future history. At some level this is probably one of the few jobs that matter. Saving money into a retirement fund seems meaningless in the light of a future that may not even exist.\n\
 \n\
 The question is can a group of very small very smart monkeys learn to understand a huge planet well enough to protect it? Can we gather and organize our data, our understanding into a decision making structure that lets us both see and act better? Can monkeys organize such that they can avoid a crisis they cannot see, touch, smell, taste or bite? That is contrary to our instincts, contrary to our skills? Will we become a footnote in the fossil record or will we become something new?\n\
+",
+
+};
+
+var topic_organization_800 = {
+  label:"hacking the system",
+  art:"",
+  notes:
+"\
+Hacking the system\n\
+\n\
+It appears that while we have planetary impacts we don’t yet have planetary level organization. We have simply outgrown our decision making structures.\n\
+\n\
+Concepts such as representative democracy or capitalism just don’t seem to map to ideas such as local stewardship, longer term growth and investment in nature.\n\
+\n\
+It feels like that solutions to the crisis will not come from the same patterns that created the crisis. We’re going to have to hack the system at some level. It’s going to mean structural change rather than procedural change. We’re going to have to build new systems right next to the old systems and start switching over.\n\
+\n\
+How do we do this? How do we learn how to learn better? I personally feel the answer has to involve local decision making - that we have to find a way to give stewardship back to local stakeholders who are disempowered, mis-informed and checked out.\n\
+\n\
+We have to find a way to give all stakeholders (including nature) a voice. We have to find different models of decision making that are bottom up, collaborative, that encourage understanding and participation rather than discourage it.\n\
 "
 };
 
-var topic_disorganized = {
+var topic_organization = {
   kind:"deck",
-  label:"Disorganized",
+  label:"Hacking the system",
   art:"glacier.jpg",
   children:[
-    topic_disorganized_100,
-    topic_disorganized_200,
-    topic_disorganized_300,
-    topic_disorganized_400,
-    topic_disorganized_500,
-    topic_disorganized_600,
-    topic_disorganized_700,
+    topic_organization_100,
+    topic_organization_200,
+    topic_organization_300,
+    topic_organization_400,
+    topic_organization_500,
+    topic_organization_600,
+    topic_organization_700,
+    topic_organization_800,
   ],
 };
 

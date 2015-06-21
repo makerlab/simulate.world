@@ -6,19 +6,47 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="/css/layoutengine.css"> 
-<script src="/js/jquery-1.11.2.min.js"></script>
-<script src="/js/underscore-min-1.8.3.js"></script>
-<script src="/js/backbone-min.js"></script>
-<script src="/js/rho.js"></script>
 </head>
 <body/>
 </html>
 
-<script src="/data/voices.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
+<script src="/js/underscore-min-1.8.3.js"></script>
+<script src="/js/backbone-min.js"></script>
+<script src="/js/rho.js"></script>
 <script src="/js/layoutengine.js"></script>
 
+<!-- links and images and stuff like that cited all over -->
+<!--
+<script src="/data/resources.js"></script>
+<script src="/data/images.js"></script>
+<script src="/data/media.js"></script>
+-->
+
+<!-- overview -->
+<script src="/data/ourworld.js"></script>
+<script src="/data/mediamessages.js"></script>
+<script src="/data/superpowers.js"></script>
+
+<!-- drill down -->
+<script src="/data/lookingcloser.js"></script>
+<script src="/data/organization.js"></script>
+<script src="/data/existential_threats.js"></script>
+
+<!-- main thesis -->
+<script src="/data/digitalmodels.js"></script>
+<script src="/data/californiadrought.js"></script>
+<script src="/data/examples.js"></script>
+<script src="/data/participate.js"></script>
+
+<!-- engine -->
+<script src="/data/thesis.js"></script>
+
+<!-- start presentation -->
 <script>
 (function($) {
-  topicengine_kickstart(topic_voices);
+  topicengine_kickstart(topic_main);
+  app_router_start();
 })(jQuery);
 </script>
+

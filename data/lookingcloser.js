@@ -126,54 +126,6 @@ http://en.wikipedia.org/wiki/Great_Filter\n\
 "
 };
 
-var topic_lookingcloser_runaway = {
-  label:"",
-  art:"",
-  notes:
-"\
-Runaway effects\n\
-\n\
-Beyond even this some of these issues have a potential to create runaway effects that are beyond our ability to understand, plan for, or appreciate.\n\
-\n\
-It’s unclear the degree to which these effects will take place and the degree to which we will be able to mitigate them at various possible intervention points. The Methane Hydrates issue is one example - some people believe this could lead to a planetary extinction event - and there is evidence for this having happened before in the fossil record.\n\
-"
-};
-
-var topic_lookingcloser_outcomes = {
-  label:"",
-  art:"",
-  notes:
-"\
-Predicted global outcomes\n\
-\n\
-The “probable” outcome of a digital model based on what we’re hearing in the media would appear to be something like this:\n\
-\n\
-Fear, Uncertainty and Doubt continues to be manufactured by corporate and private interests over any outcomes that clash with the status quo or “business as usual”. Motives continue to be greenwashed and everything continues as is.\n\
-\n\
-Collective decision making by real stakeholders continues to be ineffective.\n\
-\n\
-An increasingly rapid degradation of quality of life occurs.\n\
-\n\
-In the next 20~30 years we begin to hit “turning point” decisions. We choose to abandon entire cities, we choose to let people die, we begin “circling the wagons”.\n\
-\n\
-Food security issues lead to a loss of confidence in governments. Incendiary civil war under social and political or religious pretexts expands. Intentional eco terrorism is used to starve opponents of resources. Full scale war even nuclear war occurs.\n\
-\n\
-Easily obtained natural resources are exhausted.\n\
-\n\
-Mega-extinction events begin to occur starting with sea-life.\n\
-\n\
-Humans are forced to retreat to the poles.\n\
-\n\
-A few wealthy humans are able to life-boat; leaving the planet.\n\
-\n\
-A massive reduction in quality of life for the remaining.\n\
-\n\
-Insufficient intellectual capital and natural resources left to try “grand solutions”.\n\
-\n\
-Basically there is no happy ending.\n\
-"
-};
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 var topic_lookingcloser = {
@@ -187,7 +139,5 @@ var topic_lookingcloser = {
     topic_lookingcloser_consumption,
     topic_lookingcloser_rebounding,
     topic_lookingcloser_links,
-    topic_lookingcloser_runaway,
-    topic_lookingcloser_outcomes,
   ],
 };

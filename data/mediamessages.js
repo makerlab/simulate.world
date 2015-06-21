@@ -82,7 +82,7 @@ Our emotions drive our reasoning. We chose to get rational and pragmatic about t
 
 var topic_mediamessages = {
   kind:"deck",
-  label:"Media Messages",
+  label:"Mixed Messages",
   art:"ENDCIV-8.jpg",
   children:[
     topic_mediamessages_100,

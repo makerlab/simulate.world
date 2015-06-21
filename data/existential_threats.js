@@ -1,6 +1,28 @@
-var topic_anthropocene_100 = {
+
+var topic_existential_hyperobjects = {
+  label:"Hyper Objects",
+  art:"",
+  provenance:"",
+  notes:""
+}
+
+var topic_existential_methane_hydrates = {
+  label:"",
+  art:"",
+  notes:
+"\
+Runaway effects\n\
+\n\
+Beyond even this some of these issues have a potential to create runaway effects that are beyond our ability to understand, plan for, or appreciate.\n\
+\n\
+It’s unclear the degree to which these effects will take place and the degree to which we will be able to mitigate them at various possible intervention points. The Methane Hydrates issue is one example - some people believe this could lead to a planetary extinction event - and there is evidence for this having happened before in the fossil record.\n\
+"
+};
+
+var topic_existential_anthropocene = {
   label:"Anthropocene",
-  art:"glacier.jpg",
+  art:"AvalonGoldenDawn-05",
+  provenance:"http://www.richardfraser.co.uk/images",
   notes:
 "The Anthropocene is an informal geologic chronological term for the proposed epoch that began when human activities had a significant global impact on the Earth's ecosystems [ http://en.wikipedia.org/wiki/Anthropocene ]. Our era is characterized as a time in which our actions have changed Earth’s diversity of life and geology enough to be visible in the future geological record.\n\
 \n\
@@ -29,12 +51,15 @@ Triassic–Jurassic extinction event. About 23% of all families, 48% of all gene
 Cretaceous–Paleogene extinction event. About 17% of all families, 50% of all genera and 75% of all species became extinct. In the seas it reduced the percentage of sessile animals to about 33%. Mammals and birds emerged as dominant land vertebrates in the age of new life."
 };
 
-var topic_anthropocene = {
-  label:"Anthropocene",
-  art:"glacier.jpg",
+var topic_existential_threats = {
+  label:"Existential Threats",
+  art:"AvalonGoldenDawn-05",
+  provenance:"http://www.richardfraser.co.uk/images",
   kind:"deck",
   children: [
-    topic_anthropocene_100
+    topic_existential_hyperobjects,
+    topic_existential_methane_hydrates,
+    topic_existential_anthropocene,
   ]
 };
 
