@@ -1,7 +1,8 @@
 
 var topic_main = {
-  label:"make models of our world",
-  art:"",
+  label:"",
+  art:"glacier.jpg",
+  kind:"thumbs",
   children:[
     topic_ourworld,
     topic_mediamessages,

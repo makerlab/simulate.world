@@ -109,7 +109,7 @@ var TopicDetailView = Backbone.View.extend({
       artwrapper.append(text);
     });
 
-    var artsmall = jQuery('<img/>', { class:'topicartsmall', style:"display:none;width:256px;height:256px;float:left;margin:10px", src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
+    var artsmall = jQuery('<img/>', { class:'topicartsmall', style:"overflow:none;display:none;width:256px;height:256px;float:left;margin:10px", src: '/images/'+this.art, alt: this.label + " " + this.provenance, });
     wrapper.append(artsmall);
 
     // presenters notes
@@ -187,6 +187,8 @@ var TopicListView = Backbone.View.extend({
     // "decks" - a fully detailed fully expanded powerpoint like display
 
     if(this.kind == "deck") {
+      $("body").css("background-image","");
+      //if(this.art)$('body').css("background-image", "url('/images/"+this.art+"')"); // xxx hack apply to whole body
       _(this.collection.models).each(function(item){
         item.view = new TopicDetailView({model:item});
         wrapper.append(item.view.$el);
@@ -214,8 +216,8 @@ var TopicListView = Backbone.View.extend({
     // a thumbnails display with a border and header - a quick overview of a collection in a card like view
 
     else {
-      wrapper.append("<h1>"+this.label.toUpperCase()+"</h1>");
-      if(this.art)wrapper.css("background-image", "url('/images/"+this.art+"')");
+      if(this.label)wrapper.append("<h1>"+this.label.toUpperCase()+"</h1>");
+      if(this.art)$('body').css("background-image", "url('/images/"+this.art+"')"); // xxx hack apply to whole body
       _(this.collection.models).each(function(item){
         item.view = new TopicThumbView({model:item});
         wrapper.append(item.view.$el);
@@ -269,6 +271,8 @@ app_router.on('route:OnceUponATime', function (actions) {
     console.log("produced a new view from scratch and attached to body for: " + label);
   } else {
     foundview.show(); // uses a hide show mechanic to avoid trashing memory
+    if(topic.get("kind") == "thumbs") $('body').css("background-image", "url('/images/"+topic.get("art")+"')"); // xxx hack apply to whole body
+    if(topic.get("kind") == "deck")  $("body").css("background-image","");
   }
   allviews[label] = current_view = topic.view;
   console.log("showing view: " + label);
