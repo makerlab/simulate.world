@@ -22,8 +22,10 @@
 
 <script>
 (function($) {
+  topic_resources.kind = "list";
   topicengine_kickstart(topic_resources);
-  topic_decorate_div("#links");
+  var group = 0; // var group = topics_search("org");
+  topic_decorate_div("#links",group);
 })(jQuery);
 </script>
 

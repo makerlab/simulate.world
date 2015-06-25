@@ -27,25 +27,25 @@ var topic_superpowers_300 = {
   label:"nothing",
   art:"Fires_Research.jpg",
   notes:
-"2) Earth Sciences has also blossomed. We’re beginning to understand the complexity and subtle interactions among natural forces in ways we did not before. In the 1960’s and 80’s the Army Corp of Engineers engaged in dredging in Louisiana and the Florida wetlands in such a way that put us at risk for what happened with Hurricane Katrina. Now, based on satellite data and better understanding, these kinds of projects are less justifiable. We have a better and more technical understanding of the complexity of these large scale systems and are able to make better decisions.\n\
+"Earth Sciences has also blossomed. We’re beginning to understand the complexity and subtle interactions among natural forces in ways we did not before. In the 1960’s and 80’s the Army Corp of Engineers engaged in dredging in Louisiana and the Florida wetlands in such a way that put us at risk for what happened with Hurricane Katrina. Now, based on satellite data and better understanding, these kinds of projects are less justifiable. We have a better and more technical understanding of the complexity of these large scale systems and are able to make better decisions.\n\
 "
 };
 
 var topic_superpowers_400 = {
   label:"nothing",
-  art:"puyehue.jpg",
+  art:"gordonmoore.jpg",
   notes:
 "\n\
-3) Moores law is acting in our favor. Machine computation, big data and computer simulations are able to simulate large scale outcomes of complex systems. Hybrid human/machine systems that combine human intuition with machine speed and memory are able to search large problem spaces for sweet spots faster than either could do alone. Being able to synthesize the input of many people also creates a possibility that more minds can participate in looking at and understanding the problems we are facing.\n\
+Moores law is acting in our favor. Machine computation, big data and computer simulations are able to simulate large scale outcomes of complex systems. Hybrid human/machine systems that combine human intuition with machine speed and memory are able to search large problem spaces for sweet spots faster than either could do alone. Being able to synthesize the input of many people also creates a possibility that more minds can participate in looking at and understanding the problems we are facing.\n\
 "
 };
 
 var topic_superpowers_500 = {
   label:"nothing",
-  art:"puyehue.jpg",
+  art:"kdardashevscale.jpg",
   notes:
 "\n\
-4) We have enough history as a planetary civilization to understand our impacts on our world. We’ve seen that side-effects can dominate over intended consequences. And we’ve succeeded on a global scale such as eradicating polio under the Global Polio Eradication Initiative and eradicating chlorofluorocarbons under the Montreal Protocol. We are struggling to unify around reduction of CO2 emissions and several initiatives have failed (such as the Kyoto Protocol) but this too is becoming a visible global agenda item.\n\
+We have enough history as a planetary civilization to understand our impacts on our world. We’ve seen that side-effects can dominate over intended consequences. And we’ve succeeded on a global scale such as eradicating polio under the Global Polio Eradication Initiative and eradicating chlorofluorocarbons under the Montreal Protocol. We are struggling to unify around reduction of CO2 emissions. The Kyoto Protocol did not succeed but more <font color=blue><a style='color:blue' href='http://www.theguardian.com/environment/2015/mar/31/us-set-to-propose-emissions-cuts-of-28-ahead-of-global-climate-treaty'>recent accords</a></font> are now being ratified finally.\n\
 "
 };
 

@@ -43,34 +43,32 @@ function topics_convert_to_backbone(parent) {
 // return a set of topics matching a criteria
 function topics_search(tags,maxcount) {
   var candidates = [];
-  var collection = new TopicList();
   if(tags) {
-    var tagsplit = tags.split(/[ ,]+/).filter(Boolean);
-    for(var i = 0; i < tagsplit.length; i++) {
-      var source = TopicsByTags[tagsplit[i]];
+    tags = tags.split(/[ ,]+/).filter(Boolean);
+console.log(tags);
+    for(var i = 0; i < tags.length; i++) {
+      var source = TopicsByTags[tags[i]];
       if(!source) continue;
+console.log(i);
       for(var j = 0; j < source.length;j++) {
         var addme = source[j];
         var k;
         for(k = 0; k < candidates.length;k++) {
-          var test = candidates[k];
-          if(test.get("label") == addme.get("label")) break;
+          if(candidates[k].get("label") == addme.get("label")) break;
         }
         if(k == candidates.length) {
-          candidates.push(addme);
-          collection.add(addme);
+          candidates.push(source);
+console.log(source.get("label"));
         }
       }
     }
   }
-
-  var root = new Topic({label:tags,kind:"list"});
-  root.children = collection;
-  return root;
+  return candidates;
 }
 
 function topicengine_kickstart(topics) {
   topic_root = topics_convert_to_backbone(topics);
+ topics_search("org");
   return topic_root;
 }
 
@@ -169,7 +167,7 @@ var TopicListView = Backbone.View.extend({
     this.label = this.model.get("label");
     this.kind = this.model.get("kind");
     this.markup = this.model.get("notes");
-    this.collection = this.model.children;
+    this.collection = this.model.children; 
     this.renderOnce();
   },
   hide: function() {

@@ -100,34 +100,6 @@ http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparin
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-var topic_lookingcloser_links = {
-  label:"",
-  art:"",
-  notes:
-"\
-Other articles and citations about the global scale impacts of human behavior\n\
-\n\  http://spectrum.ieee.org/energy/renewables/what-it-would-really-take-to-reverse-climate-change\n\
-\n\ http://www.nytimes.com/2014/12/24/science/earth/restored-forests-are-making-inroads-against-climate-change-.html\n\
-\n\
-One Straw Revolution https://www.youtube.com/watch?v=XSKSxLHMv9k\n\
-\n\
-http://www.fastcoexist.com/3043284/3-ways-humans-create-poverty\n\
-\n\  http://www.rollingstone.com/politics/news/the-fate-of-trees-how-climate-change-may-alter-forests-worldwide-20150312\n\
-\n\ http://www.bloomberg.com/news/articles/2015-03-11/the-year-humans-started-to-ruin-the-world\n\
-\n\  http://www.biologicaldiversity.org/programs/biodiversity/elements_of_biodiversity/extinction_crisis/\n\
-\n\
-http://www.bbc.co.uk/nature/extinction_events\n\
-\n\
-http://archive.larouchepac.com/node/21941\n\
-\n\
-http://en.wikipedia.org/wiki/Great_Filter\n\
-\n\  http://www.mediafactory.org.au/matthew-jowett/2014/08/30/fodi-we-are-the-asteroid/\n\
-\n\  http://www.igbp.net/globalchange/anthropocene.4.1b8ae20512db692f2a680009238.html\n\
-"
-};
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
 var topic_lookingcloser = {
   label:"Looking closer",
   art:"tanker.jpg",
@@ -138,6 +110,5 @@ var topic_lookingcloser = {
     topic_lookingcloser_global_warming,
     topic_lookingcloser_consumption,
     topic_lookingcloser_rebounding,
-    topic_lookingcloser_links,
   ],
 };
