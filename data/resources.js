@@ -203,6 +203,13 @@ label:"<h1>Orgs</h1>",
 },
 
 {
+label:"Project Drawdown",
+created:"2001 01 01",
+url:"http://www.drawdown.org",
+tags:"link,org,grassroots",
+},
+
+{
 label:"Intergovernmental Panel on Climate Change",
 created:"2001 01 01",
 url:"https://www.ipcc.ch",
@@ -377,10 +384,10 @@ parent:"Future of Humanity Institute",
 { label:"Charles Darwin", tags:"person", },
 { label:"Jared Diamond", tags:"person", },
 { label:"Paul Hawken", tags:"person", },
+{ label:"Amanda Ravenhill", tags:"person", },
 { label:"Derrek Jensen", tags:"person", },
 { label:"Elizabeth Kolbert", tags:"person", },
 { label:"Gaia Vince", tags:"person", },
-{ label:"Cadillac Desert", tags:"person", },
 { label:"Antifragile", tags:"person", },
 { label:"Intertwingled", tags:"person", },
 { label:"Stephen Lansing", tags:"person", },
@@ -447,6 +454,12 @@ notes:"Last December I came face to face with a Megalosaurus at the Oxford Unive
 label:"One Straw Revolution",
 url:"https://www.youtube.com/watch?v=XSKSxLHMv9k",
 tags:"link,media,philosophy,permaculture,video,youtube",
+},
+
+{
+label:"Cadillac Desert",
+url:"https://www.youtube.com/watch?v=hkbebOhnCjA",
+tags:"link,media,philosophy,california,drought",
 },
 
 //////////////////////////////////////////////////////////////////////////////////////
