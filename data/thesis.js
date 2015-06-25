@@ -1,7 +1,7 @@
 
 var topic_main = {
-  label:"Simulate Our World",
-  art:"petermathis.jpg",
+  label:"make models of our world",
+  art:"",
   children:[
     topic_ourworld,
     topic_mediamessages,

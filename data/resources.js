@@ -19,6 +19,11 @@ label:"<h1>News and Links</h1>",
 },
 
 {
+label:"Simulate World - Twitter Feed",
+url:"http://twitter.com/worldsimulate",
+},
+
+{
 label:"What it would really take to reverse climate change",
 tags:"link,article",
 url:"http://spectrum.ieee.org/energy/renewables/what-it-would-really-take-to-reverse-climate-change",
