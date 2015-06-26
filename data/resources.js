@@ -24,61 +24,58 @@ url:"http://twitter.com/worldsimulate",
 },
 
 {
+label:"Ecological Jenga: Which Creatures Of Influence Need To Be Preserved From Extinction",
+created:"2001 01 01", // year month day
+tags:"link,article,philosophy,jenga,existential",
+link:"http://www.science20.com/news_articles/ecological_jenga_which_creatures_influence_need_be_preserved_extinction-123887",
+notes:"“The role each block plays in the stability of the towers is relative and constantly changing, if ecosystems are jenga towers almost any species can play a keystone role under the appropriate circumstances",
+},
+
+{
 label:"What it would really take to reverse climate change",
+created:"2001 01 01", // year month day
 tags:"link,article",
 url:"http://spectrum.ieee.org/energy/renewables/what-it-would-really-take-to-reverse-climate-change",
 },
 
 {
 label:"Forests are making inroads against climate change",
+created:"2001 01 01", // year month day
 url:"http://www.nytimes.com/2014/12/24/science/earth/restored-forests-are-making-inroads-against-climate-change-.html",
 tags:"link,article",
 },
 
 {
 label:"Three ways humans have created poverty",
+created:"2001 01 01", // year month day
 url:"http://www.fastcoexist.com/3043284/3-ways-humans-create-poverty",
 tags:"link,article,poverty",
 },
 
 {
 label:"How climate change may alter forests world wide",
+created:"2001 01 01", // year month day
 url:"http://www.rollingstone.com/politics/news/the-fate-of-trees-how-climate-change-may-alter-forests-worldwide-20150312",
 tags:"link,article,forests,climate",
 },
 
 {
 label:"The year humans started to ruin the world",
+created:"2001 01 01", // year month day
 url:"http://www.bloomberg.com/news/articles/2015-03-11/the-year-humans-started-to-ruin-the-world",
 tags:"link,article,philosophy",
 },
 
 {
 label:"Elements of Biodiversity Extinction Crisis",
+created:"2001 01 01", // year month day
 url:"http://www.biologicaldiversity.org/programs/biodiversity/elements_of_biodiversity/extinction_crisis",
 tags:"links,article,existential,biodiversity",
 },
 
 {
-label:"BBC Extinction Events",
-url:"http://www.bbc.co.uk/nature/extinction_events",
-tags:"link,article,existential,extinction",
-},
-
-{
-label:"Mass Extinction as shadows of anti entropic growth",
-url:"http://archive.larouchepac.com/node/21941",
-tags:"link,article",
-},
-
-{
-label:"The Great Filter",
-url:"http://en.wikipedia.org/wiki/Great_Filter",
-tags:"link,article,existential",
-},
-
-{
 label:"We are the asteriod",
+created:"2001 01 01", // year month day
 url:"http://www.mediafactory.org.au/matthew-jowett/2014/08/30/fodi-we-are-the-asteroid",
 tags:"link,article,existential",
 },
@@ -341,6 +338,13 @@ label:"<h1>Voices</h1>",
 },
 
 {
+label:"Nicholas de Monchaux",
+created:"2001 01 01", // year month day
+tags:"person",
+url:"http://ced.berkeley.edu/ced/faculty-staff/nicholas-de-monchaux",
+},
+
+{
 label:"Safa Motesharrei",
 created:"2001 01 01", // year month day
 tags:"person",
@@ -399,6 +403,27 @@ parent:"Future of Humanity Institute",
 
 {
 label:"<h1>Philosophy</h1>",
+},
+
+{
+label:"BBC Extinction Events",
+created:"2001 01 01", // year month day
+url:"http://www.bbc.co.uk/nature/extinction_events",
+tags:"link,article,existential,extinction",
+},
+
+{
+label:"Mass Extinction as shadows of anti entropic growth",
+created:"2001 01 01", // year month day
+url:"http://archive.larouchepac.com/node/21941",
+tags:"link,article",
+},
+
+{
+label:"The Great Filter",
+created:"2001 01 01", // year month day
+url:"http://en.wikipedia.org/wiki/Great_Filter",
+tags:"link,article,existential",
 },
 
 {

@@ -1,34 +1,40 @@
 
-var topic_existential_hyperobjects = {
+var topic_existential_100 = {
   label:"Hyper Objects",
-  art:"",
+  art:"morton_hyperobjects_cover.jpg",
   provenance:"",
-  notes:""
-}
+  notes:"In Hyperobjects: Philosophy and Ecology After the End of the World, Timothy Morton talks about objects which are simply too large for humans to see. Objects which exist on a physical or temporal scale so vast that we cannot comprehend them. The author characterizes Global Warming as one of these objects. Effectively he implies that we may need to revise our philosophical tools in order to be able to face these challenges."
+};
 
-var topic_existential_methane_hydrates = {
-  label:"",
-  art:"",
+var topic_existential_200 = {
+  label:"Under A Green Sky",
+  art:"greensky.jpg",
   notes:
-"\
-Runaway effects\n\
-\n\
-Beyond even this some of these issues have a potential to create runaway effects that are beyond our ability to understand, plan for, or appreciate.\n\
-\n\
-It’s unclear the degree to which these effects will take place and the degree to which we will be able to mitigate them at various possible intervention points. The Methane Hydrates issue is one example - some people believe this could lead to a planetary extinction event - and there is evidence for this having happened before in the fossil record.\n\
+"The challenges we face are 'existential'. They are a new class of challenge; a kind of challenge that has united small tribes before us but never had the same consequence for all of humanity and possibly all of life. The Methane Hydrates issue is a good example. In Under a Green Sky, Peter Ward notes that one of the early extinction events was probably caused by a methane inversion in the atmosphere. It's worth examining in detail but there's a broader point that there are Black Swan events some of which have a potential to create runaway effects that are beyond our ability to understand, plan for, or anticipate.\n\
 "
 };
 
-var topic_existential_anthropocene = {
+var topic_existential_300 = {
+  label:"nothing",
+  art:"extinctions.jpg",
+  notes:
+"\
+There is also a somewhat pessimistic attitude that this is all normal. That the Earth is a chaotic system and that extinction events are totally normal. This is being labelled as “the sixth extinction”, just one more caused by similar kinds of self induced criticalities. There is a fatalism here, in some respects similar to the fatalism that many fledgling space going civilizations run up against a kind of 'Great Filter' and that this is why the stars are not filled with radio signals from other intelligent species.\n\
+"
+};
+
+var topic_existential_400 = {
   label:"Anthropocene",
   art:"AvalonGoldenDawn-05",
   provenance:"http://www.richardfraser.co.uk/images",
   notes:
-"The Anthropocene is an informal geologic chronological term for the proposed epoch that began when human activities had a significant global impact on the Earth's ecosystems [ http://en.wikipedia.org/wiki/Anthropocene ]. Our era is characterized as a time in which our actions have changed Earth’s diversity of life and geology enough to be visible in the future geological record.\n\
+"We even have a label for our era in the grand scheme of things - calling it the 'Anthropocene'.\n\
+\n\
+The Anthropocene is an informal geologic chronological term for the proposed epoch that began when human activities had a significant global impact on the Earth's ecosystems [ http://en.wikipedia.org/wiki/Anthropocene ]. Our era is characterized as a time in which our actions have changed Earth’s diversity of life and geology enough to be visible in the future geological record.\n\
 \n\
 We have a planet straddling civilization that uses two-fifths of the arable land for food crops, that controls the flow of most rivers, that has cities so dense that we can see the outlines of the continents from space at night. We’ve chemically altered the balance of constituent elements in the atmosphere and may be altering the planet’s surface temperature.\n\
 \n\
-The Paleozoic, Mesozoic and Cenozoic Extinction Events\n\
+The other major epochs are also divided by extinction events: the Paleozoic, Mesozoic and Cenozoic Extinction Events\n\
 \n\
 The Earth has existed for 4.54 billion years and at some point in that first four billion years life starts to exist. Up until then the Earth had a destiny not unlike the moon or Mars - beautiful yet empty and devoid.\n\
 \n\
@@ -57,9 +63,10 @@ var topic_existential_threats = {
   provenance:"http://www.richardfraser.co.uk/images",
   kind:"deck",
   children: [
-    topic_existential_hyperobjects,
-    topic_existential_methane_hydrates,
-    topic_existential_anthropocene,
+    topic_existential_100,
+    topic_existential_200,
+    topic_existential_300,
+    topic_existential_400,
   ]
 };
 

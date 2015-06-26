@@ -1,42 +1,41 @@
 
 var topic_organization_100 = {
-  label:"organization",
-  art:"worldflag",
-  notes:
-"\
-Are there any current responses on the global stage? We've seen an agreement to eliminate co2 emissions by the year 2100 - which has not been ratified. Generally speaking there’s no visible consistent or unified international response to the burgeoning crisis. In many cases we’re spending billions of dollars to pay for environmental damages caused by millions of dollars reaped in profit by private corporations.\n\
-"
-};
-
-var topic_organization_200 = {
   label:"stakeholders",
-  art:"",
+  art:"tepui",
   notes:
 "\
-We can think of our world as made up of stakeholders and their interests. Nature herself, the poor, the middle class, city level government, state and federal concerns. There are transnational corporations and the wealthy elite that ostensibly “own” on paper and with guns the majority of the worlds resources.\n\
+We can think of our world as made up of stakeholders and their interests. Nature herself, the poor, the middle class, city level government, state and federal concerns. There are transnational corporations and the wealthy elite that ostensibly “own” on paper and with guns and structural violence the majority of the worlds resources.\n\
 \n\
 Not all stakeholders need to necessarily participate in all decisions but regional stakeholders seem to be marginalized unduly. Different stakeholders have different goals, some are environmental, economic, political, social, humanist, utilitarian and the like.\n\
 "
 };
 
-var topic_organization_300 = {
+var topic_organization_200 = {
   label:"governance",
-  art:"",
+  art:"worldflag",
   notes:
 "\
-The current decision making structure seems to be centered around an idea of representational voting in democratic regions, with autocratic dictatorships in other regions. Corporate interests seem to be the main decision making structure planet wide with law and policy steered in that direction (such as NAFTA and TPP). These corporate structures appear to be deeply interwoven into governance in such a way that it can be said that they effectively govern. But at the same time they don’t seem to be acting in an intelligent (or especially unified or responsive) way to ameliorate the environmental concerns.\n\
+The current decision making structures here in the west seems to be centered around an idea of representational voting in democratic regions, with autocratic dictatorships in other regions. Corporate interests seem to be the main decision making structure planet wide with law and policy steered in that direction (such as NAFTA and TPP). These corporate structures appear to be deeply interwoven into governance in such a way that it can be said that they effectively govern. But at the same time they don’t seem to be acting in an intelligent (or especially unified or responsive) way to ameliorate the environmental concerns.\n\
+"
+};
+
+var topic_organization_300 = {
+  label:"organization",
+  art:"haiti.jpg",
+  notes:
+"\
+In fact the decision making structures we do have seem to be flat out awful. The response to Hurricane Katrina is evidence of this. The same for Haiti where official responses exacerbated the issues rather than helped. There's a good possibility that nobody actually knows what they're doing in fact and when dealing with the scope and scale of the crisis we're facing that the best response from the top down will be delays.\n\
 \n\
-In fact the decision making structures we do have seem to be flat out awful. The response to Hurricane Katrina is evidence of this. The same for Haiti where official responses exacerbated the issues rather than helped.\n\
-\n\
+We've seen an agreement to eliminate co2 emissions by the year 2100 - which has not been ratified. Generally speaking there’s no visible consistent or unified international response to the burgeoning crisis. In many cases we’re spending billions of dollars to pay for environmental damages caused by millions of dollars reaped in profit by private corporations.\n\
 "
 };
 
 var topic_organization_400 = {
   label:"things that won't work",
-  art:"",
+  art:"trees.jpg",
   notes:
 "\
-At the individual level there’s a wide range of passive responses that won't work:\n\
+We can critique governments and corporations but as well at the individual level there’s a wide range of passive responses that won't work:\n\
 \n\
 1. Waiting for our governments to “do something”.\n\
 \n\
@@ -63,8 +62,8 @@ What we’re not seeing is a pragmatic, unified, planet wide push based on rigor
 };
 
 var topic_organization_500 = {
-  label:"",
-  art:"",
+  label:"disorder",
+  art:"cutoffcreek_alberta.jpg",
   notes:
 "\
 What are reasonable predicted global outcomes for humanity over the long term? Basically - What is actually going to happen? Almost certainly this is the most realistic outcome regardless of what we try to do:\n\
@@ -97,8 +96,8 @@ Setting aside grandiose and untried solutions, and looking at current trajectori
 
 
 var topic_organization_600 = {
-  label:"",
-  art:"",
+  label:"disorder",
+  art:"Field_of_wild_grass_high_grass.jpg",
   notes:
 "\
 There isn’t an underlying consistent sense of “how to fix things”. As people most affected by environmental change we are all primary stakeholders. Yet we are in conflict which each other and unable to act in concert.\n\
@@ -113,7 +112,7 @@ At some level the Earth will always be fine; it is really just the human race th
 
 var topic_organization_700 = {
   label:"smart monkeys",
-  art:"",
+  art:"Geladas.jpg",
   notes:
 "\
 It makes sense that this is hard for us. At heart we are still in some respects just very smart monkeys. Thrown upwards in an evolutionary crescendo. An utterly confounding combination of instinct and godlike apprehension. Capable of great organization and great discord. Just as our world shaped us, we are now shaping it.\n\
@@ -133,7 +132,7 @@ The question is can a group of very small very smart monkeys learn to understand
 
 var topic_organization_800 = {
   label:"hacking the system",
-  art:"",
+  art:"Mahakaya.jpg",
   notes:
 "\
 Hacking the system\n\

@@ -58,8 +58,6 @@ var topic_lookingcloser_consumption = {
   provenance:"http://www.gogreencebu.com/wp-content/uploads/2013/04/overconsumption-of-resources-2.jpg",
   notes:
 "\
-Other human impacts\n\
-\n\
 Aside from fossil fuel consumption humans also have other impacts on the planet at a large scale:\n\
 \n\
 1. <b>Ocean Fish Overconsumption.</b> According to some reports we may be the last generation to eat fish from the ocean. Salt-water fish may be extinct by 2048 based on overfishing, pollution, habitat loss and climate change.\n\
@@ -77,11 +75,6 @@ Aside from fossil fuel consumption humans also have other impacts on the planet 
 7. <b>Invasive species</b>.\n\
 \n\
 8. <b>Diversity Loss</b> through habitat fragmentation, pollution and industrial farming practices. Disappearance of birds, frogs, fish and megafauna and their replacement with corn and other monoculture crops. Often it isn’t just any one thing but a combination of things that cause extinction events. Biodiversity is a key measure of resilience that defends against “black swan events”. Events of a magnitude that we cannot appreciate or understand them ahead of time. The best way to deal with these kinds of events is to have diverse resources such that at least some of us survive. It’s also similar to playing a giant game of Jenga with the environment. Loss of a key species can have surprising and unexpected effects as other species they rely on die off.\n\
-\n\
-http://www.science20.com/news_articles/ecological_jenga_which_creatures_influence_need_be_preserved_extinction-123887 \n\
-\n\
-https://books.google.com/books?id=szK9uNKvTkQC&pg=PA42&lpg=PA42&dq=nature+jenga&source=bl&ots=HEq75K0vXP&sig=MmvY4DQFY5AxI9CfBgCwEDlfM1E&hl=en&sa=X&ei=tyUDVbPoJIfooATBmoGoBg&ved=0CDwQ6AEwCA#v=onepage&q=nature%20jenga&f=false\n\
-“jenga with the world”  “the role each block plays in the stability of the towers is relative and constantly changing, if ecosystems are jenga towers almost any species can play a keystone role under the appropriate circumstances”\n\
 "
 };
 
@@ -92,9 +85,8 @@ var topic_lookingcloser_rebounding = {
   art:"Shearwater-chick-2.jpg",
   notes:
 "\
-It’s worth noting that not all influences are negative. Jesse Ausubel makes the case for a number of rebound effects happening due to changes in human behavior. For example he points out that there is more green cover now than there has been historically and that humans have dramatically improved crop yields over increasingly smaller regions of soil. It’s worth watching:\n\
-\n\
-http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities/\n\
+It’s worth noting that not all influences are negative. Jesse Ausubel makes the case for a number of rebound effects happening due to changes in human behavior. For example he points out that there is more green cover now than there has been historically and that humans have dramatically improved crop yields over increasingly smaller regions of soil. \n\
+See <a style='color:blue' href='http://longnow.org/seminars/02015/jan/13/nature-rebounding-land-and-ocean-sparing-through-concentrating-human-activities'>Jesse Ausubel speaks at Long Now about Nature Rebounding</a>\n\
 "
 };
 

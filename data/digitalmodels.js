@@ -1,40 +1,40 @@
 
 var topic_digitalmodels_100 = {
   label:"simulate",
-  art:"",
+  art:"Bird_eating_fish.jpg",
   notes:
 "\
-I want to help provide people and communities with tools that allow them to simulate and predict the impact of new laws and policy on their regional social, economic and environmental landscape. My goal is to encourage the building of civic digital models that simulate entire communities and the outcomes of decisions in those communities.\n\
+The goal is to provide people and communities with tools that allow them to simulate and predict the impact of new laws and policy on their regional social, economic and environmental landscape.\n\
 \n\
 If you’ve played SimCity then you're familiar with the idea of digital simulations and models. Basically you take a small toy world, a stripped down and simplified version of the real world and start asking 'what if?'. And it turns out that this is good enough to often answer many questions, or at least reject some of the worst ideas.\n\
 \n\
-Another example is modern weather reporting. At first we had Farmer's Almanacs that had a historical record of weather patterns. Now we have supercomputers that can do near term predictions with some accuracy - and we've come to rely on these models to make better decisions.\n\
+Modern weather reporting is a good example of the power of digital simulation. At first we had Farmer's Almanacs that had a historical record of weather patterns. Now we have supercomputers that can do near term predictions with some accuracy - and we've come to rely on these models to make better decisions.\n\
 \n\
-Simulations are pervasive but they're not typically exposed to citizens. The idea is common (touched upon by many such as Buckminister Fuller with 'The World Game' or Mark Pesce in 'The Playful World' as well as by many others) but in practice such tools are not widespread.\n\
+The problem is that while simulations are increasingly common they're not typically exposed to citizens. Right now they are the playthings of an elite. The idea is common (touched upon by many such as Buckminister Fuller with 'The World Game' or Mark Pesce in 'The Playful World' as well as by many others) but in practice such tools are not widespread.\n\
 \n\
-Ultimately this is about making better decisions together. Rather than having to take one path we should be able to try every path. We should be able to use tools like this as a powerful lens for understanding our world. But we need to find ways to put these tools into the hands of all stakeholders.\n\
+We (and by this I mean ordinary citizens) should be able to use tools like this as a powerful lens for understanding our world. Rather than taking one path we can try all paths simultaneously and at least coarsely evaluate outcomes to reject the most egregiously bad decisions. But we need to find ways to put these tools into the hands of the actual stakeholders: the people on the ground who are affected most by the decisions our governments make.\n\
 "
 
 };
 
 var topic_digitalmodels_200 = {
   label:"civic",
-  art:"",
+  art:"Striped_Dolphins.jpg",
   notes:
 "\
-Right now lots of corporations and governments have digital models of the predicted impacts of their decisions. Their planners are able to strategically look into the future to make the best decisions as the sum of all of their knowledge.\n\
+Digital models are not new. Larger corporations, policymakers and governments do have digital models of the predicted impacts of their decisions. Their planners are able to strategically look into the future to make the best decisions as the sum of all of their knowledge.\n\
 \n\
-But what we don't have is any kind of 'civic' digital model. As citizens we read summaries about what scientists or planners think but we never get to play with the models ourselves. We are not given an ability to participate in the decisions that affect us as stakeholders in the region. At best we get to vote based on the opinion supplied by experts.\n\
+What we don't have is any kind of 'civic' digital model. As citizens we read summaries about what scientists or planners think but we never get to play with the models ourselves. We are not given an ability to participate in the decisions that affect us as stakeholders in the region. At best we get to vote based on the opinion supplied by experts.\n\
 \n\
 \n\
-In this case I want to build models with real policy, real data, and simulate the watersheds and ecosystems forwards in time in order to let people anticipate local events (even coarsely) on a broad scale rather than just react to them.\n\
+The questions are how can we build civic grassroots models with real policy, real data? How can we allow ordinary citizens to simulate their bioregions, watersheds and ecosystems forwards in time? How can we give people tools to anticipate local events (even coarsely) on a broad scale rather than just react to them?\n\
 "
 
 };
 
 var topic_digitalmodels_300 = {
   label:"details",
-  art:"",
+  art:"Bolivia-Deforestation-EO.JPG",
   notes:
 "\
 Simulating the effects of land-use laws, existing and proposed civic policy, natural phenomena and any other factors that contribute to regional outcomes is challenging. But it’s important to provide new tools for communities. The kinds of subjects that may be a part of the simulation include zoning laws for greywater collection, land use law, seasonal rainfall, the behavior of river systems, fishing, hydroelectric, farming, farming run-off, aquifer usage, dollar incomes, oil consumption and c02 production. Participants should be able to extend the model and add more subjects as well.\n\
@@ -49,13 +49,9 @@ It's worth noting that the goal isn't to actually 'solve problems' directly. If 
 
 var topic_digitalmodels_400 = {
   label:"imagine",
-  art:"",
+  art:"Lagoons_and_Reefs_of_New_Caledonia_May_10,_2001.jpg",
   notes:
 "\
-We face serious social, environmental and economic challenges. Yet we don’t seem to have the tools for civic engagement. It seems extremely difficult to create effective change. It feels almost as if none of the participants are happy with the status quo but nobody is able to create change. The system has ground down on it’s own bureaucracy and it feels hopelessly outdated and baroque.\n\
-\n\
-Do you feel involved in your community? Do you feel you have a voice? Do you feel that you can make any change? Do you feel everything is running well?\n\
-\n\
 Imagine an ordinary individual being able to present a case to city council for a watershed protection plan that included an actual simulation of that watershed and that could show both the intrinsic benefits of protecting the ecosystem and show how financial costs and rewards balance out.\n\
 \n\
 Imagine being able to have a simulation of an entire town that could computationally project the outcome of specific policy changes such laws regarding wildlife hunting permits, daylighting streams, farmland pesticide use and the like. New laws that had unforeseen side-effects might become more visible. Effectively this becomes a form of participatory budgeting, and offers a possibility of an enlightened civic debate.\n\
@@ -67,10 +63,10 @@ Imagine simply being able to zoom into your bioregion and see the hidden systems
 
 var topic_digitalmodels_500 = {
   label:"details",
-  art:"",
+  art:"Anim1754_-_Flickr_-_NOAA_Photo_Library.jpg",
   notes:
 "\
-Data\n\
+At the core of a more rigorous approach to modeling civic issues is good data. This has multiple criteria:\n\
 \n\
 Water Data. Water is such a critical component of an ecosystem model that it will show up in many of the examples as a core topic. It may need to be modeled especially accurately. The water cycle is complex. Aquifers for example may collapse once exhausted. And in some regions water shortages don’t start to take place until years into a drought due to the hydraulic nature of water reserves. Seasonal variations in water discharge into streams depend on snow melt the year before and a variety of other wind and weather conditions. Farms and urban centers use water at varying rates and in varying ways depending on assigned water rights. The migrations of fish up-river depend on many water factors; not just dams or fish ladders but also turbidity, temperature, salinity, log overhangs just to name a few.\n\
 \n\
@@ -90,10 +86,10 @@ Pre-populated. The models should allow stakeholders to populate a scenario with 
 
 var topic_digitalmodels_600 = {
   label:"",
-  art:"",
+  art:"glacier.jpg",
   notes:
 "\
-User Interface\n\
+A civic approach also has demanding user interface requirements:\n\
 \n\
 Simple. The user interfaces need to approach people at their own level. That means cartoonifying the data where needed if it is too complex for a certain audience. Different implementations of the simulations will probably address different audiences.\n\
 \n\
@@ -107,10 +103,10 @@ Varying accuracy. Accuracy of the simulations and models doesn’t have to be pr
 
 var topic_digitalmodels_700 = {
   label:"benefits",
-  art:"",
+  art:"Polar_bears_near_north_pole.jpg",
   notes:
 "\
-Some of the kinds of benefits it could provide include:\n\
+Some of the benefits that a civic modeling approach could provide include:\n\
 \n\
 <b>Engagement and learning</b>. I see open digital models of communities as tools for citizen engagement in local politics. Tools that let people try out their own ideas have an effect of both educating and engaging citizens in effective ways. Citizen science tends to be deprecated in favor of paid expertise; this may sway the balance back towards open participation.\n\
 \n\
