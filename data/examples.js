@@ -72,10 +72,10 @@ http://www.jstor.org/discover/10.2307/681181?sid=21106116561983&uid=2&uid=373925
 
 var topic_balinese_fishbank = {
   label:"Balinese Fish Bank",
-  art:"",
+  art:"Amed_Bali_Indonesia-14.jpg",
   provenance:"",
   notes:
-"https://www.youtube.com/watch?v=I2wOxzD4aJE&noredirect=1",
+"This is a another compelling example of intelligent local decision making in Bali. In this case fishermen agreed to create a fish bank that acted as a nature preserve where fish could grow larger. This helped fishermen overall and helped revive fish populations as well as tourism. https://www.youtube.com/watch?v=I2wOxzD4aJE&noredirect=1",
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
