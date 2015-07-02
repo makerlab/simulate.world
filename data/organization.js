@@ -1,7 +1,7 @@
 
 var topic_organization_100 = {
   label:"stakeholders",
-  art:"tepui",
+  art:"tepui.jpg",
   notes:
 "\
 We can think of our world as made up of stakeholders and their interests. Nature herself, the poor, the middle class, city level government, state and federal concerns. There are transnational corporations and the wealthy elite that ostensibly “own” on paper and with guns and structural violence the majority of the worlds resources.\n\
@@ -12,7 +12,7 @@ Not all stakeholders need to necessarily participate in all decisions but region
 
 var topic_organization_200 = {
   label:"governance",
-  art:"worldflag",
+  art:"worldflag.jpg",
   notes:
 "\
 The current decision making structures here in the west seems to be centered around an idea of representational voting in democratic regions, with autocratic dictatorships in other regions. Corporate interests seem to be the main decision making structure planet wide with law and policy steered in that direction (such as NAFTA and TPP). These corporate structures appear to be deeply interwoven into governance in such a way that it can be said that they effectively govern. But at the same time they don’t seem to be acting in an intelligent (or especially unified or responsive) way to ameliorate the environmental concerns.\n\
