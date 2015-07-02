@@ -59,7 +59,7 @@ Cretaceous–Paleogene extinction event. About 17% of all families, 50% of all g
 
 var topic_existential_threats = {
   label:"Existential Threats",
-  art:"AvalonGoldenDawn-05",
+  art:"AvalonGoldenDawn-05.jpg",
   provenance:"http://www.richardfraser.co.uk/images",
   kind:"deck",
   children: [
