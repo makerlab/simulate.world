@@ -25,7 +25,7 @@ There is also a somewhat pessimistic attitude that this is all normal. That the 
 
 var topic_existential_400 = {
   label:"Anthropocene",
-  art:"AvalonGoldenDawn-05",
+  art:"AvalonGoldenDawn-05.jpg",
   provenance:"http://www.richardfraser.co.uk/images",
   notes:
 "We even have a label for our era in the grand scheme of things - calling it the 'Anthropocene'.\n\
