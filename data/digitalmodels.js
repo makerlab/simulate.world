@@ -128,7 +128,7 @@ Some of the benefits that a civic modeling approach could provide include:\n\
 
 var topic_digitalmodels = {
   label:"Building Digital Models",
-  art:"glacier.jpg",
+  art:"salmon_spirit_animals.jpg",
   kind:"deck",
   children: [
     topic_digitalmodels_100,
