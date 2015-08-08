@@ -119,7 +119,7 @@ There are many more examples of this kind of work throughout the world. One of t
 
 var topic_examples = {
   label:"Examples",
-  art:"louisiana.jpg",
+  art:"01californiasmelt.adapt.768.1.jpg",
   kind:"deck",
   children:[
     topic_balinese_water_temple,

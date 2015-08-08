@@ -24,6 +24,12 @@ url:"http://twitter.com/worldsimulate",
 },
 
 {
+label:"What California can learn from Saudi Arabia",
+tags:"link,article,california,water,saudi arabia,drought,aquifer,corruption",
+link:"https://www.revealnews.org/article/what-california-can-learn-from-saudi-arabias-water-mystery/",
+},
+
+{
 label:"Ecological Jenga: Which Creatures Of Influence Need To Be Preserved From Extinction",
 created:"2001 01 01", // year month day
 tags:"link,article,philosophy,jenga,existential",
